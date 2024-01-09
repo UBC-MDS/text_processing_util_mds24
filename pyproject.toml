@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "text_processing_util_mds24"
+version = "0.1.0"
+description = "Utility functions for text processing."
+authors = ["Jerry Yu, Nasim Ghazanfari Nasrabadi, Mohammad Norouzi, Allan Lee"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
