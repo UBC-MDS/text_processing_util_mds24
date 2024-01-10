@@ -1,5 +1,5 @@
 def text_clean(docs: list[str]) -> list[str]:
-    """Removes punctiations, make everything lower case and remove numbers
+    """Removes punctuation, make everything lower case and remove numbers
        in documents.
 
     Parameters
