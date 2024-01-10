@@ -1,16 +1,38 @@
 # text_processing_util_mds24
 
-Utility functions for text processing.
+Empower your text analysis workflows with text processing package, a Python library designed for streamlined text processing tasks. This versatile package offers four key functions: text_clean for noise removal and text refinement, frequency_vectorizer to generate frequency-based vectors, tfidf_vectorizer for TF-IDF vectorization, and tokenizer_padding to assist in tokenization and padding of text sequences. By simplifying essential text preprocessing steps, this package facilitates efficient text-based analysis, providing an easy-to-use toolkit for natural language processing and text modeling endeavors.
+
+# Contributors
+Our team, in alphabetical order:
+
+- **Allen Lee**
+- **Jerry Yu**
+- **Mo Norouzi**
+- **Nasim Ghazanfari Nasrabadi**
+
+Welcome to the repository for text processing, a part of the DSCI-524 course by Group 10 in the MDS-V Cohort 8 at UBC.
 
 ## Installation
+
+To get started with `text_processing_util_mds24`, install it using `pip`:
 
 ```bash
 $ pip install text_processing_util_mds24
 ```
-
+## Functions
+1. `text_clean`
+2. `frequency_vectorizer`
+3. `tfidf_vectorizer`
+4. `tokenizer_padding`
+ 
 ## Usage
 
 - TODO
+
+## Test Automation
+
+To run tests, execute the following command in the project root directory:
+
 
 ## Contributing
 
