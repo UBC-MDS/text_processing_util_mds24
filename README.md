@@ -1,6 +1,30 @@
 # text_processing_util_mds24
 
-Utility functions for text processing.
+This package provides functions to preprocess text documents for machine learning algorithms.
+
+# functions
+#### text_clean(): 
+Removes punctuation, makes everything lower case and removes numbers from documents.
+#### frequency_vectorizer():
+Converts the document to word occurrence frequency representation.
+#### tfidf_vectorizer()
+Converts the document to TF-IDF representation.
+#### tokenizer_padding()
+?????WRITE?????
+
+
+# Ecosystem
+This package is intended to clean and transform texts into different representations to feed into machine learning algorithms.
+Scikit-learn provides similar functionalities.
+
+count vectorizer:
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
+
+TF-IDF vectorizer:
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
+
+
+
 
 ## Installation
 
