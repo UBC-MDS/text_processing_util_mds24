@@ -1,4 +1,5 @@
 # text_processing_util_mds24
+Welcome to the repository for text processing, a part of the DSCI-524 course by Group 10 in the MDS-V Cohort 8 at UBC.
 
 Empower your text analysis workflows with text processing package, a Python library designed for streamlined text processing tasks. This versatile package offers four key functions: text_clean for noise removal and text refinement, frequency_vectorizer to generate frequency-based vectors, tfidf_vectorizer for TF-IDF vectorization, and tokenizer_padding to assist in tokenization and padding of text sequences. By simplifying essential text preprocessing steps, this package facilitates efficient text-based analysis, providing an easy-to-use toolkit for natural language processing and text modeling endeavors.
 
@@ -10,7 +11,6 @@ Our team, in alphabetical order:
 - **Mo Norouzi**
 - **Nasim Ghazanfari Nasrabadi**
 
-Welcome to the repository for text processing, a part of the DSCI-524 course by Group 10 in the MDS-V Cohort 8 at UBC.
 
 ## Installation
 
