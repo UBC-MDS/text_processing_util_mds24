@@ -23,8 +23,8 @@ def frequency_vectorizer(docs: list[str]) -> list[dict[str:float]]:
     >>> documents = ["This is a sample document.", "Another document for testing."]
     >>> result = frequency_vectorizer(documents)
     >>> print(result)
-    [{'This': 0.14, 'is': 0.14, 'a': 0.14, 'sample': 0.14, 'document.': 0.14},
-    {'Another': 0.16, 'document': 0.16, 'for': 0.16, 'testing.': 0.16}]
+    [{'This': 0.2, 'is': 0.2, 'a': 0.2, 'sample': 0.2, 'document.': 0.2},
+    {'Another': 0.25, 'document': 0.25, 'for': 0.25, 'testing.': 0.25}]
     """
     pass
 
