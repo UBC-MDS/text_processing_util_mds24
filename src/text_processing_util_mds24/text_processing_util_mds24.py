@@ -16,7 +16,7 @@ def frequency_vectorizer(docs: list[str]) -> list[dict[str:float]]:
     Returns
     -------
     list[dict[str: float]]
-        A list of dictionaries, where each dictionary contains the word and the word's frequency in a text document.
+        A list of dictionaries, where each dictionary contains each word and its frequency in a text document.
         
     Examples
     --------
