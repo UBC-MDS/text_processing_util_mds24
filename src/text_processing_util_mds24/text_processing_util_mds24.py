@@ -15,8 +15,9 @@ def text_clean(docs: list[str]) -> list[str]:
 
     Examples
     --------
-    >>> text_clean(["we are group 10",
-                    "we are the best"])
+    >>> text_clean(["We are group 10.",
+                    "We are the best!"])
+    ["we are group", "we are the best"]
     """
     pass
 
