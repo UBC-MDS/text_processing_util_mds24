@@ -1,6 +1,6 @@
 # Contributing
 
-## Core Contributors
+## Core Contributors / Maintainers
 
 ### Issues
 
@@ -8,11 +8,11 @@ Each individual task should be recorded as an issue on GitHub. This can occur af
 
 Each task related issue should also be properly labeled for organization. It should also be assigned to a milestone and be put onto the project board.
 
-Each contributor should also be using issues for team communication in addition for assignment of tasks.
+Each core contributor should also be using issues for team communication in addition for assignment of tasks.
 
 ### Milestones
 
-A milestone should be created for each week. All the relevant task related issues should be put into their proper milestones. Each internal contributor should make sure that their issues were completed by the deadline for each milestone.
+A milestone should be created for each week. All the relevant task related issues should be put into their proper milestones. Each core contributor should make sure that their issues were completed by the deadline for each milestone.
 
 ### Project Board
 
@@ -20,7 +20,7 @@ Each member of the group is responsible for using the project board for organiza
 
 ### Pull Requests
 
-All contributors must create pull requests for their work, and should not push their work directly to the main branch. Each pull branch should be reviewed by at least one member of the group before it is merged.
+All core contributors should create pull requests for their work, and should not push their work directly to the main branch. Each pull branch should be reviewed by at least one member of the group before it is merged.
 
 
 ## External Contributors
