@@ -12,23 +12,21 @@ Our team, in alphabetical order:
 - **Mo Norouzi**
 - **Nasim Ghazanfari Nasrabadi**
 
-This package provides functions to preprocess text documents for machine learning algorithms.
-
 
 ## Functions
 1.  `text_clean`: 
-Removes punctuation, make everything lower case and remove numbers in documents.
+Removes punctuation, turns all characters in each document lower case and removes numbers in documents.
 2.  `frequency_vectorizer`:
 Calculates the frequency of each word in a list of text documents.
 3.  `tfidf_vectorizer`:
-Calculate TF-IDF scores for a list of documents.
+Calculates TF-IDF scores for a list of documents.
 4.  `tokenizer_padding`:
 Converts each text document into a list of numerical tokens, and pads shorter sequences so that each tokenized document has the same length.
 
 
 ## Ecosystem
 This package is intended to clean and transform texts into different representations to feed into machine learning algorithms.
-Scikit-learn and Keras provides similar functionalities.
+Scikit-learn and Keras provide similar functionalities.
 
 Frequency vectorizer:
 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
