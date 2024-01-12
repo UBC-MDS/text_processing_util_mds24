@@ -7,7 +7,7 @@ Empower your text analysis workflows with text processing package, a Python libr
 ## Contributors
 Our team, in alphabetical order:
 
-- **Allen Lee**
+- **Allan Lee**
 - **Jerry Yu**
 - **Mo Norouzi**
 - **Nasim Ghazanfari Nasrabadi**
