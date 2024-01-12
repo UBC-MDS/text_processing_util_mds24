@@ -15,7 +15,7 @@ Our team, in alphabetical order:
 
 ## Functions
 1.  `text_clean`: 
-Removes punctuation, turns all characters in the string lower case and removes numbers in documents.
+Removes punctuation, turns all characters in each document lower case and removes numbers in documents.
 2.  `frequency_vectorizer`:
 Calculates the frequency of each word in a list of text documents.
 3.  `tfidf_vectorizer`:

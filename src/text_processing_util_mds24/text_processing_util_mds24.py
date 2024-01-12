@@ -1,6 +1,6 @@
 def text_clean(docs: list[str]) -> list[str]:
-    """Removes punctuation, make everything lower case and remove numbers
-       in documents.
+    """Removes punctuation, turns all characters in each document lower case
+       and removes numbers in documents.
 
     Parameters
     ----------
@@ -34,8 +34,9 @@ def frequency_vectorizer(docs: list[str]) -> list[dict[str:float]]:
     Returns
     -------
     list[dict[str: float]]
-        A list of dictionaries, where each dictionary contains each word and its frequency in a text document.
-        
+        A list of dictionaries, where each dictionary contains each word
+        and its frequency in a text document.
+
     Examples
     --------
     >>> documents = ["This is a sample document.", "Another document for testing."]
@@ -48,9 +49,8 @@ def frequency_vectorizer(docs: list[str]) -> list[dict[str:float]]:
 
 
 def tfidf_vectorizer(docs: list[str]) -> list[dict[str:float]]:
-
     """
-    Calculate TF-IDF scores for a list of documents.
+    Calculates TF-IDF scores for a list of documents.
 
     Parameters
     ----------
@@ -65,7 +65,6 @@ def tfidf_vectorizer(docs: list[str]) -> list[dict[str:float]]:
     Examples
     --------
     >>> tfidf_vectorizer(["This is the first document."])
-    
     [{'This': -0.13862943611198905, 'is': -0.13862943611198905, 
     'the': -0.13862943611198905, 'first': -0.13862943611198905, '
     'document.': -0.13862943611198905}]
