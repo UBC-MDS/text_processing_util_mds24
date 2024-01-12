@@ -28,7 +28,7 @@ Converts each text document into a list of numerical tokens, and pads shorter se
 
 ## Ecosystem
 This package is intended to clean and transform texts into different representations to feed into machine learning algorithms.
-Scikit-learn provides similar functionalities.
+Scikit-learn and Keras provides similar functionalities.
 
 Frequency vectorizer:
 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
