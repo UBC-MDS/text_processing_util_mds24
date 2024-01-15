@@ -1,6 +1,8 @@
-def text_clean(docs: list[str]) -> list[str]:
-    """Removes punctuation, turns all characters in each document lower case
-       and removes numbers in documents.
+import numpy as np
+
+def text_clean(docs: list[str]) -> list[list[str]]:
+    """Removes punctuation, turns all characters in each document lower case,
+       removes numbers in documents, and splits each document into a list of words.
 
     Parameters
     ----------
@@ -10,19 +12,19 @@ def text_clean(docs: list[str]) -> list[str]:
 
     Returns
     -------
-    list[str]
+    list[list[str]]
         Cleaned documents.
 
     Examples
     --------
     >>> text_clean(["We are group 10.",
                     "We are the best!"])
-    ["we are group", "we are the best"]
+    [["we", "are", "group"], ["we", "are", "the", "best"]]
     """
     pass
 
 
-def frequency_vectorizer(docs: list[str]) -> list[dict[str:float]]:
+def frequency_vectorizer(docs: list[str]) -> np.ndarray, np.ndarray:
     """
     Calculates the frequency of each word in a list of text documents.
 
@@ -33,9 +35,11 @@ def frequency_vectorizer(docs: list[str]) -> list[dict[str:float]]:
 
     Returns
     -------
-    list[dict[str: float]]
-        A list of dictionaries, where each dictionary contains each word
+    np.ndarray of float
+        A 2D array, where each dictionary contains each word
         and its frequency in a text document.
+    np.ndarray of str
+        Feature names
 
     Examples
     --------
@@ -48,7 +52,7 @@ def frequency_vectorizer(docs: list[str]) -> list[dict[str:float]]:
     pass
 
 
-def tfidf_vectorizer(docs: list[str]) -> list[dict[str:float]]:
+def tfidf_vectorizer(docs: list[str]) -> np.ndarray, np.ndarray:
     """
     Calculates TF-IDF scores for a list of documents.
 
@@ -59,8 +63,10 @@ def tfidf_vectorizer(docs: list[str]) -> list[dict[str:float]]:
 
     Returns
     -------
-    list[dict[str:float]]
-        List of dictionaries containing TF-IDF scores for each term in each document.
+    np.ndarray of float
+        2D array containing TF-IDF scores for each term in each document.
+    np.ndarray of str
+        Feature names
 
     Examples
     --------
@@ -72,7 +78,7 @@ def tfidf_vectorizer(docs: list[str]) -> list[dict[str:float]]:
     pass
 
 
-def tokenizer_padding(docs: list[str]) -> list[list[int]]:
+def tokenizer_padding(docs: list[str]) -> np.ndarray:
     """
     Converts each text document into a list of numerical tokens, and pads
     shorter sequences so that each tokenized document has the same length.
@@ -84,8 +90,8 @@ def tokenizer_padding(docs: list[str]) -> list[list[int]]:
 
     Returns
     -------
-    list[list[int]]
-        A list of tokenized and padded sequences of the input documents.
+    np.ndarray
+        2D array of tokenized and padded sequences of the input documents.
 
     Examples
     --------
