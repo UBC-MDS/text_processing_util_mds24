@@ -1,4 +1,6 @@
-from text_processing_util_mds24 import text_processing_util_mds24
+import pytest
+from text_processing_util_mds24.text_processing_util_mds24 import (
+    text_clean)
 
 empty_list = []
 list_empty_str = [""]
@@ -8,9 +10,67 @@ list_mixed_empty = ["Here is document one.", "", "we have document 2"]
 list_num_punctuation = ["112.32", "!@#$", "795"]
 
 
-
 # text_clean
+def test_split_correct():
+    test_str = ['hi!! wE are gRoup 30 . ',
+                ' i at 12  bananas ']
+    cleaned_doc = text_clean(test_str)
+    assert len(cleaned_doc) == 2
+    assert sorted(cleaned_doc[0]) == sorted(['hi', 'we', 'are', 'group'])
 
+    assert sorted(cleaned_doc[1]) == sorted(['i', 'at', 'bananas'])
+
+    return
+
+
+def test_empty_list():
+    assert text_clean(empty_list) == empty_list
+    return
+
+
+def test_list_empty_str():
+    assert text_clean(list_empty_str) == [[]]
+    return
+
+
+def test_one_doc():
+    cleaned_doc = text_clean(one_doc)
+    assert len(cleaned_doc) == 1
+    assert sorted(cleaned_doc[0]) \
+           == sorted(['this', 'is', 'a', 'document', 'with', 'string'])
+
+    return
+
+
+def test_invalid_input():
+    with pytest.raises(TypeError):
+        text_clean(None)
+
+    return
+
+
+def test_invalid_doc():
+    with pytest.raises(TypeError):
+        text_clean(list_invalid)
+
+    return
+
+
+def test_mixed_empty():
+    cleaned_doc = text_clean(list_mixed_empty)
+    assert len(cleaned_doc) == 3
+    assert sorted(cleaned_doc[0]) == sorted(['here', 'is', 'document', 'one'])
+    assert cleaned_doc[1] == []
+    assert sorted(cleaned_doc[2]) == sorted(['we', 'have', 'document'])
+
+    return
+
+
+def test_list_num_punctuation():
+    cleaned_doc = text_clean(list_num_punctuation)
+    assert cleaned_doc == [[], [], []]
+
+    return
 
 
 # frequency_vectorizer
