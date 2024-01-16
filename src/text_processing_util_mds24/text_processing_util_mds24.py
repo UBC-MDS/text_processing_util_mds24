@@ -1,4 +1,6 @@
+import string
 import numpy as np
+
 
 def text_clean(docs: list[str]) -> list[list[str]]:
     """Removes punctuation, turns all characters in each document lower case,
@@ -21,10 +23,33 @@ def text_clean(docs: list[str]) -> list[list[str]]:
                     "We are the best!"])
     [["we", "are", "group"], ["we", "are", "the", "best"]]
     """
-    pass
+
+    if not isinstance(docs, list):
+        raise TypeError('Input is not a list')
+    for doc_i, doc in enumerate(docs):
+        if not isinstance(doc, str):
+            raise TypeError(f'Document {doc_i} is not string')
+
+    cleaned_docs: list[str] = []
+
+    for _ in docs:
+        cleaned_docs.append('')
+
+    # remove punctuation and number and lower case everything
+    for doc_i, doc in enumerate(docs):
+        for ch in doc:
+            if not ch.isnumeric() and ch not in string.punctuation:
+                cleaned_docs[doc_i] += ch.lower()
+
+    out_docs: list[list[str]] = []
+    # split by space
+    for doc in cleaned_docs:
+        out_docs.append([wrd for wrd in doc.split(' ') if wrd != ''])
+
+    return out_docs
 
 
-def frequency_vectorizer(docs: list[str]) -> np.ndarray, np.ndarray:
+def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     """
     Calculates the frequency of each word in a list of text documents.
 
@@ -52,7 +77,7 @@ def frequency_vectorizer(docs: list[str]) -> np.ndarray, np.ndarray:
     pass
 
 
-def tfidf_vectorizer(docs: list[str]) -> np.ndarray, np.ndarray:
+def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     """
     Calculates TF-IDF scores for a list of documents.
 
