@@ -90,7 +90,7 @@ def test_tokenizer_empty_list():
 
 def test_tokenizer_list_empty_str():
     tokenized_padded = tokenizer_padding(list_empty_str)
-    assert tokenized_padded == np.array([[]])
+    np.testing.assert_array_equal(tokenized_padded, np.array([[]]))
 
 def test_tokenizer_one_doc():
     tokenized_padded = tokenizer_padding(one_doc)
@@ -110,7 +110,7 @@ def test_tokenizer_list_mixed_empty():
 
 def test_tokenizer_list_num_punctuation():
     tokenized_padded = tokenizer_padding(list_num_punctuation)
-    assert tokenized_padded == np.array([[], [], []])
+    np.testing.assert_array_equal(tokenized_padded, np.array([[], [], []]))
 
 def test_tokenizer_equal_lists():
     equal_lists = ["My first document 1.", "My first 5 documents!", "the Great doc"]
