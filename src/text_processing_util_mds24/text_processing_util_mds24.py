@@ -1,7 +1,6 @@
 import string
 import numpy as np
 from collections import Counter
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def text_clean(docs: list[str]) -> list[list[str]]:
