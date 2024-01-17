@@ -126,6 +126,8 @@ def tokenizer_padding(docs: list[str]) -> np.ndarray:
     [[1, 2, 3], [2, 3, 4]]
     """
     cleaned = text_clean(docs)
+    if len(docs) == 0:
+        return np.array([])
     max_len = max([len(doc) for doc in cleaned])
     mapper = {}
     max_token = 1

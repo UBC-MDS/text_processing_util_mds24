@@ -86,7 +86,7 @@ def test_list_num_punctuation():
 # tokenizer_padding
 def test_tokenizer_empty_list():
     tokenized_padded = tokenizer_padding(empty_list)
-    assert tokenized_padded == np.array([])
+    np.testing.assert_array_equal(tokenized_padded, np.array([]))
 
 def test_tokenizer_list_empty_str():
     tokenized_padded = tokenizer_padding(list_empty_str)
