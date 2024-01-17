@@ -1,6 +1,7 @@
 import pytest
 from text_processing_util_mds24.text_processing_util_mds24 import (
-    text_clean)
+    text_clean,
+    tokenizer_padding)
 
 empty_list = []
 list_empty_str = [""]
@@ -82,6 +83,33 @@ def test_list_num_punctuation():
 
 
 # tokenizer_padding
+def test_tokenizer_empty_list():
+    tokenized_padded = tokenizer_padding(empty_list)
+    assert tokenized_padded == []
+
+def test_tokenizer_list_empty_str():
+    tokenized_padded = tokenizer_padding(list_empty_str)
+    assert tokenized_padded == [[]]
+
+def test_tokenizer_one_doc():
+    tokenized_padded = tokenizer_padding(one_doc)
+    assert tokenized_padded == [[1, 2, 3, 4, 5, 6]]
+
+def test_tokenizer_invalid():
+    with pytest.raises(TypeError):
+        tokenizer_padding(123)
+
+def test_tokenizer_list_invalid():
+    with pytest.raises(TypeError):
+        tokenizer_padding(list_invalid)
+
+def test_tokenizer_list_mixed_empty():
+    tokenized_padded = tokenizer_padding(list_mixed_empty)
+    assert tokenized_padded == [[1, 2, 3, 4], [0, 0, 0, 0], [5, 6, 3, 0]]
+
+def test_tokenizer_list_num_punctuation():
+    tokenized_padded = tokenizer_padding(list_num_punctuation)
+    assert tokenized_padded == [[], [], []]
 
 
 
