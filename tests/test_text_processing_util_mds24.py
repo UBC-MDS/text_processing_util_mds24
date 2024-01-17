@@ -94,7 +94,7 @@ def test_tokenizer_list_empty_str():
 
 def test_tokenizer_one_doc():
     tokenized_padded = tokenizer_padding(one_doc)
-    assert tokenized_padded == np.array([[1, 2, 3, 4, 5, 6]])
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 4, 5, 6]]))
 
 def test_tokenizer_invalid():
     with pytest.raises(TypeError):
@@ -106,7 +106,7 @@ def test_tokenizer_list_invalid():
 
 def test_tokenizer_list_mixed_empty():
     tokenized_padded = tokenizer_padding(list_mixed_empty)
-    assert tokenized_padded == np.array([[1, 2, 3, 4], [0, 0, 0, 0], [5, 6, 3, 0]])
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 4], [0, 0, 0, 0], [5, 6, 3, 0]]))
 
 def test_tokenizer_list_num_punctuation():
     tokenized_padded = tokenizer_padding(list_num_punctuation)
@@ -115,25 +115,26 @@ def test_tokenizer_list_num_punctuation():
 def test_tokenizer_equal_lists():
     equal_lists = ["My first document 1.", "My first 5 documents!", "the Great doc"]
     tokenized_padded = tokenizer_padding(equal_lists)
-    assert tokenized_padded == np.array([[1, 2, 3], [1, 2, 4], [5, 6, 7]])
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3], [1, 2, 4], [5, 6, 7]]))
 
 def test_tokenizer_unequal_lists():
     unequal_lists = ["This is by far the longest doc in this list of docs.",
                      "I am the shortest",
                      "Is last doc the second longest?"]
     tokenized_padded = tokenizer_padding(unequal_lists)
-    assert tokenized_padded == np.array([[1, 2, 3, 4, 5, 6, 7, 8, 1, 9, 10, 11],
-                                         [12, 13, 5, 14, 0, 0, 0, 0, 0, 0, 0, 0],
-                                         [15, 16, 7, 5, 17, 6, 0, 0, 0, 0, 0, 0]])
+    np.testing.assert_array_equal(tokenized_padded,
+                                  np.array([[1, 2, 3, 4, 5, 6, 7, 8, 1, 9, 10, 11],
+                                            [12, 13, 5, 14, 0, 0, 0, 0, 0, 0, 0, 0],
+                                            [2, 15, 7, 5, 16, 6, 0, 0, 0, 0, 0, 0]]))
 
 def test_tokenizer_repeats():
     repeats = ["one two three", "one three four five"]
     tokenized_padded = tokenizer_padding(repeats)
-    assert tokenized_padded == np.array([[1, 2, 3, 0], [1, 3, 4, 5]])
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 0], [1, 3, 4, 5]]))
 
 def test_tokenizer_no_repeats():
     no_repeats = ["one two three", "four five six"]
     tokenized_padded = tokenizer_padding(no_repeats)
-    assert tokenized_padded == np.array([[1, 2, 3], [4, 5, 6]])
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3], [4, 5, 6]]))
 
 
