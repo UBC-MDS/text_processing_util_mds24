@@ -1,6 +1,7 @@
 import pytest
+import numpy as np
 from text_processing_util_mds24.text_processing_util_mds24 import (
-    text_clean)
+    text_clean, tfidf_vectorizer)
 
 empty_list = []
 list_empty_str = [""]
@@ -78,6 +79,37 @@ def test_list_num_punctuation():
 
 
 # tfidf_vectorizer
+
+def test_tfidf_vectorizer_single_doc():
+    docs = ["python is a programming language"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 1
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_multiple_docs():
+    docs = ["machine learning is interesting", "python is widely used in machine learning"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 2
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_negative_input():
+    docs = ["negative words are not positive", "positive words are good"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 2
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_case_insensitive():
+    docs = ["Python is a programming language", "python is widely used"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 2
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_empty_input():
+    docs = []
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 0
+    assert len(feature_names) == 0
+
 
 
 
