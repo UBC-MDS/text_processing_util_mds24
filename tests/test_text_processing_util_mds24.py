@@ -151,8 +151,8 @@ def test_tfidf_vectorizer_one_document():
     expected_matrix = np.array([
         [-0.13862944, -0.13862944, -0.13862944, -0.13862944, -0.13862944]
     ])
-    assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
-    assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']))
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']))
 
 
 
