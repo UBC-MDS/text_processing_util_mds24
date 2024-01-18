@@ -139,8 +139,8 @@ def test_tfidf_vectorizer_similar_content():
         [ 0.,  0., -0.10136628, -0.10136628, -0.10136628],  
         [ 0.,  0., -0.10136628, -0.10136628, -0.10136628] 
     ])
-    assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
-    assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']))
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']))
 
 
 
