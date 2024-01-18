@@ -1,7 +1,7 @@
 import string
 import numpy as np
 from collections import Counter
-from sklearn.feature_extraction.text import TfidfVectorizer
+
 
 
 def text_clean(docs: list[str]) -> list[list[str]]:
@@ -102,6 +102,8 @@ def tfidf_vectorizer(docs):
            [0.57735027, 0.        , 0.        , 0.        , 0.        , 0.        ]]),
      array(['in', 'interesting', 'is', 'learning', 'machine', 'python'], dtype='<U11'))
     """
+
+    
     # Clean the documents
     cleaned_docs = text_clean(docs)
     
@@ -151,3 +153,5 @@ def tokenizer_padding(docs: list[str]) -> np.ndarray:
     [[1, 2, 3], [2, 3, 4]]
     """
     pass
+docs_1= ["apple orange banana", "apple banana banana"]
+tfidf_vectorizer(docs_1)
