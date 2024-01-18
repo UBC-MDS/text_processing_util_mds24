@@ -152,5 +152,3 @@ def tokenizer_padding(docs: list[str]) -> np.ndarray:
     [[1, 2, 3], [2, 3, 4]]
     """
     pass
-docs_1= ["apple orange banana", "apple banana banana"]
-tfidf_vectorizer(docs_1)
