@@ -126,8 +126,8 @@ def test_tfidf_vectorizer_repeated_words():
         [-0.13515504, -0.13515504,  0.],  
         [-0.13515504, -0.27031007,  0.] 
     ])
-    assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6)
-    assert_array_equal(feature_names, np.array(['apple', 'banana', 'orange']))
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['apple', 'banana', 'orange']))
 
 
 
