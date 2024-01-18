@@ -2,6 +2,7 @@ import pytest
 import numpy as np
 from text_processing_util_mds24.text_processing_util_mds24 import (
     text_clean,
+    tfidf_vectorizer,
     tokenizer_padding)
 
 empty_list = []
@@ -66,7 +67,77 @@ def test_list_num_punctuation():
 
 
 # tfidf_vectorizer
+def test_tfidf_vectorizer_empty_list():
+    tfidf_matrix, feature_names = tfidf_vectorizer(empty_list)
+    assert tfidf_matrix.shape == (0, 0)
+    assert len(feature_names) == 0
 
+def test_tfidf_vectorizer_single_doc():
+    docs = ["python is a programming language"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 1
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_multiple_docs():
+    docs = ["machine learning is interesting", "python is widely used in machine learning"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 2
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_negative_input():
+    docs = ["negative words are not positive", "positive words are good"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 2
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_case_insensitive():
+    docs = ["Python is a programming language", "python is widely used"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 2
+    assert len(feature_names) > 0
+
+def test_tfidf_vectorizer_empty_input():
+    docs = []
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+    assert len(tfidf_matrix) == 0
+    assert len(feature_names) == 0
+
+
+def test_tfidf_vectorizer_repeated_words():
+    docs = ["apple orange banana", "apple banana banana"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+
+    expected_matrix = np.array([
+        [-0.13515504, -0.13515504,  0.],  
+        [-0.13515504, -0.27031007,  0.] 
+    ])
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['apple', 'banana', 'orange']))
+
+
+
+def test_tfidf_vectorizer_similar_content():
+    docs = ["machine learning is interesting", "machine learning is fascinating"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+
+    expected_matrix = np.array([
+        [ 0.,  0., -0.10136628, -0.10136628, -0.10136628],  
+        [ 0.,  0., -0.10136628, -0.10136628, -0.10136628] 
+    ])
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']))
+
+
+
+def test_tfidf_vectorizer_one_document():
+    docs = ["python is a programming language"]
+    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+
+    expected_matrix = np.array([
+        [-0.13862944, -0.13862944, -0.13862944, -0.13862944, -0.13862944]
+    ])
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']))
 
 
 # tokenizer_padding

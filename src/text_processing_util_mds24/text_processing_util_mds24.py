@@ -1,5 +1,6 @@
 import string
 import numpy as np
+from collections import Counter
 
 
 def text_clean(docs: list[str]) -> list[list[str]]:
@@ -77,30 +78,55 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     pass
 
 
-def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
+def tfidf_vectorizer(docs):
     """
-    Calculates TF-IDF scores for a list of documents.
+    Calculate TF-IDF scores for a list of documents.
 
     Parameters
     ----------
-    docs : list[str]: 
-        List of documents (strings)
+    docs : List[str]
+        List of documents (strings).
 
     Returns
     -------
-    np.ndarray of float
-        2D array containing TF-IDF scores for each term in each document.
-    np.ndarray of str
-        Feature names
+    Tuple[np.ndarray, np.ndarray]
+        Tuple containing two elements:
+            - A 2D array containing TF-IDF scores for each term in each document.
+            - An array of feature names corresponding to the columns in the TF-IDF matrix.
 
     Examples
     --------
-    >>> tfidf_vectorizer(["This is the first document."])
-    [{'This': -0.13862943611198905, 'is': -0.13862943611198905, 
-    'the': -0.13862943611198905, 'first': -0.13862943611198905, '
-    'document.': -0.13862943611198905}]
+    >>> calculate_tfidf(["Machine learning is interesting", "Python is widely used in machine learning"])
+    (array([[0.        , 0.43550663, 0.43550663, 0.43550663, 0.43550663, 0.43550663],
+           [0.57735027, 0.        , 0.        , 0.        , 0.        , 0.        ]]),
+     array(['in', 'interesting', 'is', 'learning', 'machine', 'python'], dtype='<U11'))
     """
-    pass
+
+    
+    # Clean the documents
+    cleaned_docs = text_clean(docs)
+    
+    # Calculate term frequency (TF)
+    tf = [{term: count / len(doc) for term, count in Counter(doc).items()} for doc in cleaned_docs]
+    
+    # Calculate document frequency (DF)
+    df = Counter()
+    
+    for doc in cleaned_docs:
+        df.update(set(doc))
+    
+    # Calculate inverse document frequency (IDF)
+    idf = {term: np.log(len(docs) / (df[term] + 1)) for term in df}
+    
+    # Calculate TF-IDF
+    tfidf_matrix = np.zeros((len(docs), len(idf)))
+    feature_names = sorted(idf.keys())
+    
+    for i, doc in enumerate(cleaned_docs):
+        for j, term in enumerate(feature_names):
+            tfidf_matrix[i, j] = tf[i].get(term, 0) * idf[term]
+    
+    return tfidf_matrix, feature_names
 
 
 def tokenizer_padding(docs: list[str]) -> np.ndarray:
@@ -141,3 +167,4 @@ def tokenizer_padding(docs: list[str]) -> np.ndarray:
             ret_array[i,j] = mapper[cleaned[i][j]]
 
     return ret_array
+
