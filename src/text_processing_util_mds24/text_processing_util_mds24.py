@@ -125,4 +125,19 @@ def tokenizer_padding(docs: list[str]) -> np.ndarray:
     >>> tokenizer_padding(["a sample text", "sample text two"])
     [[1, 2, 3], [2, 3, 4]]
     """
-    pass
+    cleaned = text_clean(docs)
+    if len(docs) == 0:
+        return np.array([])
+    max_len = max([len(doc) for doc in cleaned])
+    mapper = {}
+    max_token = 1
+    ret_array = np.zeros((len(cleaned), max_len))
+
+    for i in range(len(cleaned)):
+        for j in range(len(cleaned[i])):
+            if cleaned[i][j] not in mapper:
+                mapper[cleaned[i][j]] = max_token
+                max_token += 1
+            ret_array[i,j] = mapper[cleaned[i][j]]
+
+    return ret_array
