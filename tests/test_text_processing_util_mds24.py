@@ -65,42 +65,31 @@ def test_list_num_punctuation():
 
 # frequency_vectorizer
 def test_frequency_vectorizer_empty_docs():
-    documents = []
-    result_words, result_freq = frequency_vectorizer(documents)
-    np.testing.assert_array_equal(result_words, np.array([]))
-    np.testing.assert_array_equal(result_freq, np.array([]))
-    
-def test_frequency_vectorizer_non_empty_docs():
-    documents = ["This is a sample document.", "Another document for testing."]
-    result_words, result_freq = frequency_vectorizer(documents)
+    docs = []
+    result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
 
-    expected_words = np.array(['this', 'is', 'a', 'sample', 'document', 'another', 'document', 'for', 'testing'])
-    expected_freqs = np.array([0.2, 0.2, 0.2, 0.2, 0.2, 0.25, 0.25, 0.25, 0.25])
+    assert np.array_equal(result_tf_matrix, np.array([]))
+    assert np.array_equal(result_feature_names, np.array([]))
 
-    np.testing.assert_array_equal(result_words, expected_words)
-    np.testing.assert_array_equal(result_freq, expected_freqs)
-    
 def test_frequency_vectorizer_single_doc():
-    documents = ["A single document."]
-    result_words, result_freq = frequency_vectorizer(documents)
+    docs = ["This is a sample document."]
+    result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
 
-    expected_words = np.array(['a', 'single', 'document'])
-    expected_freqs = np.array([1/3, 1/3, 1/3])
+    expected_matrix = np.array([[0.2, 0.2, 0.2, 0.2 , 0.2]])
+    expected_feature_names = np.array(['a', 'document', 'is', 'sample', 'this'])
 
-    np.testing.assert_array_equal(result_words, expected_words)
-    np.testing.assert_array_equal(result_freq, expected_freqs)
-    
-def test_repeated_words():
-    documents = ["This is a sample document. This document has repeated words."]
-    result_words, result_freq = frequency_vectorizer(documents)
+    assert np.allclose(result_tf_matrix, expected_matrix)
+    assert np.array_equal(result_feature_names, expected_feature_names)
 
-    expected_words = np.array(['this', 'is', 'a', 'sample', 'document', 'has', 'repeated',
-    'words'])
-    expected_freqs = np.array([0.2, 0.1, 0.1, 0.1, 0.2, 0.1, 0.1, 0.1])
+def test_frequency_vectorizer_multiple_docs():
+    docs = ["This is a sample document.", "Another document for testing."]
+    result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
 
-    np.testing.assert_array_equal(result_words, expected_words)
-    np.testing.assert_array_equal(result_freq, expected_freqs)
+    expected_matrix = np.array([[0.2, 0.,   0.2 , 0. ,  0.2 , 0.2 , 0. ,  0.2 ], [0. ,  0.25 ,0.25 ,0.25, 0. ,  0.,   0.25, 0.  ]])
+    expected_feature_names = np.array(['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this'])
 
+    assert np.allclose(result_tf_matrix, expected_matrix)
+    assert np.array_equal(result_feature_names, expected_feature_names)
 # tfidf_vectorizer
 def test_tfidf_vectorizer_empty_list():
     tfidf_matrix, feature_names = tfidf_vectorizer(empty_list)
