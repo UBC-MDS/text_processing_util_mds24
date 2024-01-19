@@ -13,6 +13,56 @@ Our team, in alphabetical order:
 - **Nasim Ghazanfari Nasrabadi**
 
 
+## Developer Notes
+
+**Note:** Since this package has not been published to PyPI as of the latest release, please follow the following instructions to install the package from this GitHub repository.
+
+### Installation
+
+1. First, please make sure that you have `poetry` and `conda` installed on your local computer. If not, please follow the official instructions for each respectively to install them. ([`poetry`](https://python-poetry.org/docs/), [`conda`](https://docs.conda.io/projects/miniconda/en/latest/))
+
+2. It is recommended to create a conda virtual environment to install the package by running the following commands:
+
+```bash
+conda create --name text_processing_util_mds24 python=3.9 -y
+conda activate text_processing_util_mds24
+```
+
+3. Clone the repository to your local machine by running:
+
+```bash
+git clone git@github.com:UBC-MDS/text_processing_util_mds24.git
+```
+
+4. From the root of this repository, install the package using `poetry` by running the following command:
+
+```bash
+poetry install
+```
+
+### Testing
+
+**Note:** Every function in this package except for `text_clean` calls `text_clean` in the first line of the code. Hence, testing for errors due to unexpected inputs is only done for `text_clean`. Integration testing is done for the other functions that call `text_clean`.
+
+To test this package, please run the following command from the root directory of the repository:
+
+```bash
+pytest tests/
+```
+
+If you would like to see line coverage, please run the following command from the root directory of the repository:
+
+```bash
+pytest --cov=text_processing_util_mds24
+```
+
+If you would like to see branch coverage, please run the following command from the root directory of the repository:
+
+```bash
+pytest --cov-branch --cov=text_processing_util_mds24
+```
+
+
 ## Functions
 1.  `text_clean`: 
 Removes punctuation, turns all characters in each document lower case and removes numbers in documents.
@@ -28,14 +78,15 @@ Converts each text document into a list of numerical tokens, and pads shorter se
 This package is intended to clean and transform texts into different representations to feed into machine learning algorithms.
 Scikit-learn and Keras provide similar functionalities.
 
-Frequency vectorizer:
+`frequency_vectorizer`:
 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
 
-TF-IDF vectorizer:
+`tfidf_vectorizer`:
 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
 
 
-Tokenizer + padding:
+`tokenizer_padding`:
+
 - https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer
 - https://www.tensorflow.org/api_docs/python/tf/keras/utils/pad_sequences
 
