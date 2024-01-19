@@ -78,14 +78,15 @@ Converts each text document into a list of numerical tokens, and pads shorter se
 This package is intended to clean and transform texts into different representations to feed into machine learning algorithms.
 Scikit-learn and Keras provide similar functionalities.
 
-Frequency vectorizer:
+`frequency_vectorizer`:
 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
 
-TF-IDF vectorizer:
+`tfidf_vectorizer`:
 https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
 
 
-Tokenizer + padding:
+`tokenizer_padding`:
+
 - https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer
 - https://www.tensorflow.org/api_docs/python/tf/keras/utils/pad_sequences
 

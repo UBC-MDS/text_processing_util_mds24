@@ -130,8 +130,8 @@ def test_frequency_vectorizer_multiple_docs():
     expected_matrix = np.array([[0.2, 0.,   0.2 , 0. ,  0.2 , 0.2 , 0. ,  0.2 ], [0. ,  0.25 ,0.25 ,0.25, 0. ,  0.,   0.25, 0.]])
     expected_feature_names = np.array(['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this'])
 
-    assert np.allclose(result_tf_matrix, expected_matrix)
-    assert np.array_equal(result_feature_names, expected_feature_names)
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
 
 
 # Testing an additional case of multiple documents for frequency_vectorizer
