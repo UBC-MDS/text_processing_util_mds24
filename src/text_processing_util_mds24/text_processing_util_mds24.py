@@ -86,6 +86,9 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
     cleaned_docs = text_clean(docs)
 
+    if len(docs) == 0:
+        return np.array([]), np.array([])
+
     # Calculate frequency 
     tf_matrix = np.zeros((len(docs), len(set(term for doc in cleaned_docs for term in doc))))
     feature_names = sorted(set(term for doc in cleaned_docs for term in doc))
@@ -95,7 +98,10 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
         total_terms = len(doc)
 
         for j, term in enumerate(feature_names):
-            tf_matrix[i, j] = term_count.get(term, 0) / total_terms
+            if total_terms == 0:
+                tf_matrix[i, j] = 0
+            else:
+                tf_matrix[i, j] = term_count.get(term, 0) / total_terms
 
     return tf_matrix, feature_names
 

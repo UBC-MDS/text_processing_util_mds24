@@ -65,21 +65,42 @@ def test_list_num_punctuation():
 
 # frequency_vectorizer
 def test_frequency_vectorizer_empty_docs():
-    docs = []
-    result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
+    result_tf_matrix, result_feature_names = frequency_vectorizer(empty_list)
 
     assert np.array_equal(result_tf_matrix, np.array([]))
     assert np.array_equal(result_feature_names, np.array([]))
 
 def test_frequency_vectorizer_single_doc():
-    docs = ["This is a sample document."]
-    result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
+    result_tf_matrix, result_feature_names = frequency_vectorizer(one_doc)
 
-    expected_matrix = np.array([[0.2, 0.2, 0.2, 0.2 , 0.2]])
-    expected_feature_names = np.array(['a', 'document', 'is', 'sample', 'this'])
+    expected_matrix = np.array([[1/6, 1/6, 1/6, 1/6, 1/6, 1/6]])
+    expected_feature_names = np.array(['a', 'document', 'is', 'string', 'this', 'with'])
 
-    assert np.allclose(result_tf_matrix, expected_matrix)
-    assert np.array_equal(result_feature_names, expected_feature_names)
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
+
+def test_frequency_vectorizer_list_empty_str():
+    result_tf_matrix, result_feature_names = frequency_vectorizer(list_empty_str)
+
+    np.testing.assert_array_equal(result_tf_matrix, np.empty((1,0)))
+    np.testing.assert_array_equal(result_feature_names, np.array([]))
+
+def test_frequency_vectorizer_list_num_punctuation():
+    result_tf_matrix, result_feature_names = frequency_vectorizer(list_num_punctuation)
+
+    np.testing.assert_array_equal(result_tf_matrix, np.empty((3,0)))
+    np.testing.assert_array_equal(result_feature_names, np.array([]))
+
+def test_frequency_vectorizer_list_mixed_empty():
+    result_tf_matrix, result_feature_names = frequency_vectorizer(list_mixed_empty)
+
+    expected_matrix = np.array([[0.25, 0, 0.25, 0.25, 0.25, 0],
+                                [0, 0, 0, 0, 0, 0],
+                                [1/3, 1/3, 0, 0, 0, 1/3]])
+    expected_feature_names = np.array(['document', 'have', 'here', 'is', 'one', 'we'])
+
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
 
 def test_frequency_vectorizer_multiple_docs():
     docs = ["This is a sample document.", "Another document for testing."]
@@ -98,8 +119,8 @@ def test_frequency_vectorizer_additional_case():
     expected_matrix = np.array([[1/3, 1/3, 1/3], [1/3, 2/3, 0]])
     expected_feature_names = np.array(['apple', 'banana', 'orange'])
 
-    assert_allclose(result_tf_matrix, expected_matrix)
-    assert_array_equal(result_feature_names, expected_feature_names)
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
     
 # tfidf_vectorizer
 def test_tfidf_vectorizer_empty_list():
