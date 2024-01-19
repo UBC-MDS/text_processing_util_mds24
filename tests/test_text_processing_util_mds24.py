@@ -85,11 +85,22 @@ def test_frequency_vectorizer_multiple_docs():
     docs = ["This is a sample document.", "Another document for testing."]
     result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
 
-    expected_matrix = np.array([[0.2, 0.,   0.2 , 0. ,  0.2 , 0.2 , 0. ,  0.2 ], [0. ,  0.25 ,0.25 ,0.25, 0. ,  0.,   0.25, 0.  ]])
+    expected_matrix = np.array([[0.2, 0.,   0.2 , 0. ,  0.2 , 0.2 , 0. ,  0.2 ], [0. ,  0.25 ,0.25 ,0.25, 0. ,  0.,   0.25, 0.]])
     expected_feature_names = np.array(['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this'])
 
     assert np.allclose(result_tf_matrix, expected_matrix)
     assert np.array_equal(result_feature_names, expected_feature_names)
+    
+def test_frequency_vectorizer_additional_case():
+    docs = ["apple orange banana", "apple banana banana"]
+    result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
+
+    expected_matrix = np.array([[1/3, 1/3, 1/3], [1/3, 2/3, 0]])
+    expected_feature_names = np.array(['apple', 'banana', 'orange'])
+
+    assert_allclose(result_tf_matrix, expected_matrix)
+    assert_array_equal(result_feature_names, expected_feature_names)
+    
 # tfidf_vectorizer
 def test_tfidf_vectorizer_empty_list():
     tfidf_matrix, feature_names = tfidf_vectorizer(empty_list)
