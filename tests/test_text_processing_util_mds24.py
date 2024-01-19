@@ -6,7 +6,8 @@ from text_processing_util_mds24.text_processing_util_mds24 import (
     tokenizer_padding,
     frequency_vectorizer)
 
-# some common test data for edge cases
+
+# some test data for edge cases and errors
 empty_list = []
 list_empty_str = [""]
 one_doc = ["This is a document with 1 string."]
@@ -137,11 +138,40 @@ def test_tfidf_vectorizer_empty_list():
     assert len(feature_names) == 0
 
 
-def test_tfidf_vectorizer_single_doc():
+def test_tfidf_vectorizer_list_empty_str():
+    tfidf_matrix, feature_names = tfidf_vectorizer(list_empty_str)
+    np.testing.assert_array_equal(tfidf_matrix, np.empty((1,0)))
+    np.testing.assert_array_equal(feature_names, np.array([]))
+
+
+def test_tfidf_vectorizer_one_document():
     docs = ["python is a programming language"]
     tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+
+    expected_matrix = np.array([
+        [-0.13862944, -0.13862944, -0.13862944, -0.13862944, -0.13862944]
+    ])
     assert len(tfidf_matrix) == 1
     assert len(feature_names) > 0
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']))
+
+
+def test_tfidf_vectorizer_list_mixed_empty():
+    tfidf_matrix, feature_names = tfidf_vectorizer(list_mixed_empty)
+    expected_matrix = np.array([
+        [0., 0., 0.10136628, 0.10136628, 0.10136628, 0.],  
+        [0., 0., 0., 0., 0., 0.],
+        [0., 0.13515504, 0., 0., 0., 0.13515504]
+    ])
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6)
+    np.testing.assert_array_equal(feature_names, np.array(['document', 'have', 'here', 'is', 'one', 'we']))
+
+
+def test_tfidf_vectorizer_list_num_punctuation():
+    tfidf_matrix, feature_names = tfidf_vectorizer(list_num_punctuation)
+    np.testing.assert_array_equal(tfidf_matrix, np.empty((3,0)))
+    np.testing.assert_array_equal(feature_names, np.array([]))
 
 
 def test_tfidf_vectorizer_multiple_docs():
@@ -163,13 +193,6 @@ def test_tfidf_vectorizer_case_insensitive():
     tfidf_matrix, feature_names = tfidf_vectorizer(docs)
     assert len(tfidf_matrix) == 2
     assert len(feature_names) > 0
-
-
-def test_tfidf_vectorizer_empty_input():
-    docs = []
-    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
-    assert len(tfidf_matrix) == 0
-    assert len(feature_names) == 0
 
 
 def test_tfidf_vectorizer_repeated_words():
@@ -194,17 +217,6 @@ def test_tfidf_vectorizer_similar_content():
     ])
     np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
     np.testing.assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']))
-
-
-def test_tfidf_vectorizer_one_document():
-    docs = ["python is a programming language"]
-    tfidf_matrix, feature_names = tfidf_vectorizer(docs)
-
-    expected_matrix = np.array([
-        [-0.13862944, -0.13862944, -0.13862944, -0.13862944, -0.13862944]
-    ])
-    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6)
-    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']))
 
 
 # tokenizer_padding

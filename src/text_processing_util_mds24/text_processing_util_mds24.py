@@ -61,11 +61,10 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
     Returns
     -------
-    np.ndarray of float
-        A 2D array, where each dictionary contains each word
-        and its frequency in a text document.
-    np.ndarray of str
-        Feature names
+    Tuple[np.ndarray, np.ndarray]
+        Tuple containing two elements:
+            - A 2D array containing frequency scores for each term in each document.
+            - An array of feature names corresponding to the columns in the frequency matrix.
 
     Examples
     --------
@@ -105,7 +104,8 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
     return tf_matrix, feature_names
 
-def tfidf_vectorizer(docs):
+
+def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     """
     Calculate TF-IDF scores for a list of documents.
 
@@ -123,13 +123,11 @@ def tfidf_vectorizer(docs):
 
     Examples
     --------
-    >>> calculate_tfidf(["Machine learning is interesting", "Python is widely used in machine learning"])
+    >>> tfidf_vectorizer(["Machine learning is interesting", "Python is widely used in machine learning"])
     (array([[0.        , 0.43550663, 0.43550663, 0.43550663, 0.43550663, 0.43550663],
            [0.57735027, 0.        , 0.        , 0.        , 0.        , 0.        ]]),
      array(['in', 'interesting', 'is', 'learning', 'machine', 'python'], dtype='<U11'))
     """
-
-    
     # Clean the documents
     cleaned_docs = text_clean(docs)
     
