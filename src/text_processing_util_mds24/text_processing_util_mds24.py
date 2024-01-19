@@ -43,6 +43,7 @@ def text_clean(docs: list[str]) -> list[list[str]]:
                 cleaned_docs[doc_i] += ch.lower()
 
     out_docs: list[list[str]] = []
+
     # split by space
     for doc in cleaned_docs:
         out_docs.append([wrd for wrd in doc.split(' ') if wrd != ''])
@@ -177,8 +178,10 @@ def tokenizer_padding(docs: list[str]) -> np.ndarray:
     [[1, 2, 3], [2, 3, 4]]
     """
     cleaned = text_clean(docs)
+
     if len(docs) == 0:
         return np.array([])
+
     max_len = max([len(doc) for doc in cleaned])
     mapper = {}
     max_token = 1
