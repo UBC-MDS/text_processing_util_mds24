@@ -70,13 +70,40 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     Examples
     --------
     >>> documents = ["This is a sample document.", "Another document for testing."]
-    >>> result = frequency_vectorizer(documents)
-    >>> print(result)
-    [{'This': 0.2, 'is': 0.2, 'a': 0.2, 'sample': 0.2, 'document.': 0.2},
-    {'Another': 0.25, 'document': 0.25, 'for': 0.25, 'testing.': 0.25}]
-    """
-    pass
+    >>> result_tf_matrix, result_feature_names = frequency_vectorizer(documents)
 
+    >>> print("Frequency Matrix:")
+    >>> print(result_tf_matrix)
+    >>> print("\nFeature Names:")
+    >>> print(result_feature_names)
+    Frequency Matrix:
+    [[0.2  0.   0.2  0.   0.2  0.2  0.   0.2 ]
+    [0.   0.25 0.25 0.25 0.   0.   0.25 0.  ]]
+    
+    Feature Names:
+    ['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this']
+    """
+
+    cleaned_docs = text_clean(docs)
+
+    if len(docs) == 0:
+        return np.array([]), np.array([])
+
+    # Calculate frequency 
+    tf_matrix = np.zeros((len(docs), len(set(term for doc in cleaned_docs for term in doc))))
+    feature_names = sorted(set(term for doc in cleaned_docs for term in doc))
+
+    for i, doc in enumerate(cleaned_docs):
+        term_count = Counter(doc)
+        total_terms = len(doc)
+
+        for j, term in enumerate(feature_names):
+            if total_terms == 0:
+                tf_matrix[i, j] = 0
+            else:
+                tf_matrix[i, j] = term_count.get(term, 0) / total_terms
+
+    return tf_matrix, feature_names
 
 def tfidf_vectorizer(docs):
     """
