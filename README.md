@@ -74,6 +74,67 @@ Calculates TF-IDF scores for a list of documents.
 Converts each text document into a list of numerical tokens, and pads shorter sequences so that each tokenized document has the same length.
 
 
+## Usage
+
+Here are some examples of usage of the functions in this package.
+
+Example of using `text_clean`:
+
+```python
+from text_processing_util_mds24 import (
+    text_clean,
+    tfidf_vectorizer,
+    frequency_vectorizer,
+    tokenizer_padding
+)
+docs = ["Here is document one.", "", "we have document 2"]
+print(text_clean(docs))
+```
+```text
+[['here', 'is', 'document', 'one'], [], ['we', 'have', 'document']]
+```
+
+Example of using `frequency_vectorizer`:
+
+```python
+docs = ["apple orange banana", "apple banana banana"]
+result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
+print(result_tf_matrix)
+print(result_feature_names)
+```
+```text
+[[0.33333333 0.33333333 0.33333333]
+ [0.33333333 0.66666667 0.        ]]
+['apple', 'banana', 'orange']
+```
+
+Example of using `tfidf_vectorizer`:
+
+```python
+docs = ["machine learning is interesting", "machine learning is fascinating"]
+tfidf_matrix, feature_names = tfidf_vectorizer(docs)
+print(tfidf_matrix)
+print(feature_names)
+```
+```text
+[[ 0.          0.         -0.10136628 -0.10136628 -0.10136628]
+ [ 0.          0.         -0.10136628 -0.10136628 -0.10136628]]
+['fascinating', 'interesting', 'is', 'learning', 'machine']
+```
+
+Example of using `tokenizer_padding`:
+
+```python
+docs = ["one two three", "one three four five"]
+tokenized_padded = tokenizer_padding(docs)
+print(tokenized_padded)
+```
+```text
+[[1. 2. 3. 0.]
+ [1. 3. 4. 5.]]
+```
+
+
 ## Ecosystem
 This package is intended to clean and transform texts into different representations to feed into machine learning algorithms.
 Scikit-learn and Keras provide similar functionalities.
