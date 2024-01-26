@@ -1,7 +1,9 @@
 # text_processing_util_mds24
+[![Documentation Status](https://readthedocs.org/projects/text-processing-util-mds24/badge/?version=latest)](https://text-processing-util-mds24.readthedocs.io/en/latest/?badge=latest)
+
 Welcome to the repository for text processing, a part of the DSCI-524 course by Group 10 in the MDS-V Cohort 8 at UBC.
 
-Empower your text analysis workflows with text processing package, a Python library designed for streamlined text processing tasks. This versatile package offers four key functions: `text_clean` for noise removal and text refinement, `frequency_vectorizer` to generate frequency-based vectors, `tfidf_vectorizer` for TF-IDF vectorization, and `tokenizer_padding` to assist in tokenization and padding of text sequences. By simplifying essential text preprocessing steps, this package facilitates efficient text-based analysis, providing an easy-to-use toolkit for natural language processing and text modeling endeavors.
+Empower your text analysis workflows with text processing package, a Python library designed for streamlined text processing tasks. This versatile package offers four key functions: `text_clean` for noise removal and text refinement, `frequency_vectorizer` to generate frequency-based vectors, `tfidf_vectorizer` for TF-IDF vectorization, and `tokenizer_padding` to assist in tokenization and padding of text sequences for usage in recurrent neural networks. By simplifying essential text preprocessing steps, this package facilitates efficient text-based analysis, providing an easy-to-use toolkit for natural language processing and text modeling endeavors.
 
 
 ## Contributors
@@ -42,7 +44,7 @@ poetry install
 
 ### Testing
 
-**Note:** Every function in this package except for `text_clean` calls `text_clean` in the first line of the code. Hence, testing for errors due to unexpected inputs is only done for `text_clean`. Integration testing is done for the other functions that call `text_clean`.
+**Note:** Every function in this package except for `text_clean` calls `text_clean` in the first line of the code. Hence, testing for errors that arise from unexpected inputs is only done for `text_clean`. Integration testing is done for the other functions that call `text_clean`.
 
 To test this package, please run the following command from the root directory of the repository:
 
@@ -133,6 +135,11 @@ print(tokenized_padded)
 [[1. 2. 3. 0.]
  [1. 3. 4. 5.]]
 ```
+
+
+## Documentation
+
+The official documentation for this package is hosted on Read the Docs: https://text-processing-util-mds24.readthedocs.io/en/latest/.
 
 
 ## Ecosystem
