@@ -11,7 +11,7 @@ def text_clean(docs: list[str]) -> list[list[str]]:
     ----------
     docs : list[str]
         Documents to be processed.
-        Each item item in the list is a document.
+        Each item in the list is a document.
 
     Returns
     -------
@@ -106,12 +106,14 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
 def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     """
-    Calculate TF-IDF scores for a list of documents.
+    Calculates TF-IDF scores for a list of documents. The TF-IDF score measures \
+    the importance of a word to its document, adjusted for the word's overall \
+    frequency in all documents.
 
     Parameters
     ----------
     docs : list[str]
-        List of documents (strings).
+        A list of documents (strings).
 
     Returns
     -------
@@ -160,8 +162,11 @@ def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
 def tokenizer_padding(docs: list[str]) -> np.ndarray:
     """
-    Converts each text document into a list of numerical tokens, and pads \
-    shorter sequences so that each tokenized document has the same length.
+    Converts each text document into a list of numerical tokens, which are \
+    numerical identifiers for each word, and pads shorter sequences so that \
+    each tokenized document has the same length. These steps make it possible \
+    for the transformed data to be accepted by deep learning libraries for \
+    building recurrent neural networks.
 
     Parameters
     ----------
