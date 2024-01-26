@@ -180,9 +180,11 @@ def tokenizer_padding(docs: list[str]) -> np.ndarray:
 
     Examples
     --------
-    >>> tokenizer_padding(["the first sentence", "the second longer sentence"])
+    >>> tokenized_padded = tokenizer_padding(["the first sentence", "the second longer sentence"])
+    >>> print(tokenized_padded)
     [[1, 2, 3, 0], [1, 4, 5, 3]]
-    >>> tokenizer_padding(["a sample text", "sample text two"])
+    >>> tokenized_padded = tokenizer_padding(["a sample text", "sample text two"])
+    >>> print(tokenized_padded)
     [[1, 2, 3], [2, 3, 4]]
     """
     cleaned = text_clean(docs)
