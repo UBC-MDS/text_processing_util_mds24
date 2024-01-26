@@ -137,6 +137,11 @@ print(tokenized_padded)
 ```
 
 
+## Documentation
+
+The official documentation for this package is hosted on Read the Docs: https://text-processing-util-mds24.readthedocs.io/en/latest/.
+
+
 ## Ecosystem
 This package is intended to clean and transform texts into different representations to feed into machine learning algorithms.
 Scikit-learn and Keras provide similar functionalities.
