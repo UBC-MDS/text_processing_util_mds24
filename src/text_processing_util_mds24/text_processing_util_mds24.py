@@ -4,7 +4,7 @@ from collections import Counter
 
 
 def text_clean(docs: list[str]) -> list[list[str]]:
-    """Removes punctuation, turns all characters in each document lower case,
+    """Removes punctuation, turns all characters in each document to lower case, \
        removes numbers in documents, and splits each document into a list of words.
 
     Parameters
@@ -62,24 +62,22 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
     Returns
     -------
-    Tuple[np.ndarray, np.ndarray]
+    tuple[np.ndarray, np.ndarray]
         Tuple containing two elements:
             - A 2D array containing frequency scores for each term in each document.
             - An array of feature names corresponding to the columns in the frequency matrix.
 
     Examples
     --------
-    >>> documents = ["This is a sample document.", "Another document for testing."]
+    >>> docs = ["This is a sample document.", "Another document for testing."]
     >>> result_tf_matrix, result_feature_names = frequency_vectorizer(documents)
-
     >>> print("Frequency Matrix:")
     >>> print(result_tf_matrix)
-    >>> print("\nFeature Names:")
-    >>> print(result_feature_names)
     Frequency Matrix:
     [[0.2  0.   0.2  0.   0.2  0.2  0.   0.2 ]
     [0.   0.25 0.25 0.25 0.   0.   0.25 0.  ]]
-    
+    >>> print("Feature Names:")
+    >>> print(result_feature_names)
     Feature Names:
     ['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this']
     """
@@ -112,22 +110,27 @@ def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
     Parameters
     ----------
-    docs : List[str]
+    docs : list[str]
         List of documents (strings).
 
     Returns
     -------
-    Tuple[np.ndarray, np.ndarray]
+    tuple[np.ndarray, np.ndarray]
         Tuple containing two elements:
             - A 2D array containing TF-IDF scores for each term in each document.
             - An array of feature names corresponding to the columns in the TF-IDF matrix.
 
     Examples
     --------
-    >>> tfidf_vectorizer(["Machine learning is interesting", "Python is widely used in machine learning"])
-    (array([[0.        , 0.43550663, 0.43550663, 0.43550663, 0.43550663, 0.43550663],
-           [0.57735027, 0.        , 0.        , 0.        , 0.        , 0.        ]]),
-     array(['in', 'interesting', 'is', 'learning', 'machine', 'python'], dtype='<U11'))
+    >>> docs = ["Machine learning is interesting", "Python is widely used in machine learning"]
+    >>> tdifd_matrix, feature_names = tfidf_vectorizer(docs)
+    >>> print("TFIDF Matrix:")
+    >>> print(tdifd_matrix)
+    [[0.        , 0.43550663, 0.43550663, 0.43550663, 0.43550663, 0.43550663]
+    [0.57735027, 0.        , 0.        , 0.        , 0.        , 0.        ]]
+    >>> print(Feature Names:)
+    >>> print(feature_names)
+    ['in', 'interesting', 'is', 'learning', 'machine', 'python']
     """
     # Clean the documents
     cleaned_docs = text_clean(docs)
@@ -157,7 +160,7 @@ def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
 
 def tokenizer_padding(docs: list[str]) -> np.ndarray:
     """
-    Converts each text document into a list of numerical tokens, and pads
+    Converts each text document into a list of numerical tokens, and pads \
     shorter sequences so that each tokenized document has the same length.
 
     Parameters
