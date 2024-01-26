@@ -20,8 +20,7 @@ def text_clean(docs: list[str]) -> list[list[str]]:
 
     Examples
     --------
-    >>> text_clean(["We are group 10.",
-                    "We are the best!"])
+    >>> text_clean(["We are group 10.", "We are the best!"])
     [["we", "are", "group"], ["we", "are", "the", "best"]]
     """
 
@@ -75,7 +74,7 @@ def frequency_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     >>> print(result_tf_matrix)
     Frequency Matrix:
     [[0.2  0.   0.2  0.   0.2  0.2  0.   0.2 ]
-    [0.   0.25 0.25 0.25 0.   0.   0.25 0.  ]]
+     [0.   0.25 0.25 0.25 0.   0.   0.25 0.  ]]
     >>> print("Feature Names:")
     >>> print(result_feature_names)
     Feature Names:
@@ -129,7 +128,7 @@ def tfidf_vectorizer(docs: list[str]) -> tuple[np.ndarray, np.ndarray]:
     >>> print("TFIDF Matrix:")
     >>> print(tdifd_matrix)
     [[0.        , 0.43550663, 0.43550663, 0.43550663, 0.43550663, 0.43550663]
-    [0.57735027, 0.        , 0.        , 0.        , 0.        , 0.        ]]
+     [0.57735027, 0.        , 0.        , 0.        , 0.        , 0.        ]]
     >>> print(Feature Names:)
     >>> print(feature_names)
     ['in', 'interesting', 'is', 'learning', 'machine', 'python']
