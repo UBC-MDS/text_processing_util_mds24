@@ -2,6 +2,13 @@
 
 
 
+## v0.1.0 (2024-01-29)
+
+### Feature
+
+* feat: add semantic release (#69) ([`e7cbeef`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/e7cbeef65612597331fd114f974cdc505a7f3ce8))
+
+
 ## v0.0.1 (2024-01-29)
 
 ### Fix
