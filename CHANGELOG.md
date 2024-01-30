@@ -2,7 +2,22 @@
 
 
 
-## v0.1.0 (2024-01-29)
+## v2.1.0 (2024-01-30)
+
+### Fix
+
+* fix: updating version to try fixing semantic versioning ([`6dd7892`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/6dd78929fbf7479f22f131e92ace46b7200e18a3))
+
+### Unknown
+
+* Merge pull request #71 from UBC-MDS/semantic_release
+
+Semantic release: fix 2 ([`bfc7268`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/bfc72685d4ec025090b6196f6ef6e9ce40a4127a))
+
+* Merge branch &#39;main&#39; into semantic_release ([`d714fe1`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/d714fe19d84937308900516c5f0046389f644786))
+
+
+## v2.0.1 (2024-01-29)
 
 ### Feature
 
@@ -10,6 +25,10 @@
 
 
 ## v0.0.1 (2024-01-29)
+
+### Feature
+
+* feat: add semantic release ([`ae58d48`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/ae58d48afea0cea6accfacc2e87a182f1ec52586))
 
 ### Fix
 
