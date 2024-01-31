@@ -2,6 +2,19 @@
 
 
 
+## v2.1.2 (2024-01-31)
+
+### Fix
+
+* fix: Feedback addressed by adding more explanation about tf-idf and padding functions ([`0c4a5b2`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/0c4a5b2f679bc95389ca10643f7a2498e75a5970))
+
+### Unknown
+
+* Merge pull request #84 from UBC-MDS/78-feedback_add_information
+
+fix: Feedback addressed by adding more explanation about tf-idf and p… ([`a5f80f1`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/a5f80f1b3f8e2ffbc674de8128968bdc93904848))
+
+
 ## v2.1.1 (2024-01-31)
 
 ### Fix
