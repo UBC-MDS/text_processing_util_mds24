@@ -158,6 +158,7 @@ https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.tex
 - https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer
 - https://www.tensorflow.org/api_docs/python/tf/keras/utils/pad_sequences
 
+Still, our functions are different in some ways. `frequency_vectorizer` calculates the relative frequency of each word with regards to the total number of words in its document rather than giving the raw counts. `tokenizer_padding` combines what would be an otherwise two-step process if one were to use Keras into one step. Both `tfidf_vectorizer` and `tokenizer_padding` offer simpler functional APIs and implementations compared to the implementations from scikit-learn and Keras respectively.
 
 
 ## Contributing
