@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "text_processing_util_mds24"
-version = "2.1.0"
+version = "2.1.1"
 description = "Utility functions for text processing."
 authors = ["Jerry Yu, Nasim Ghazanfari Nasrabadi, Mohammad Norouzi, Allan Lee"]
 license = "MIT"

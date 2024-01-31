@@ -2,6 +2,25 @@
 
 
 
+## v2.1.1 (2024-01-31)
+
+### Fix
+
+* fix: Feedback addressed by explaining how our functions are different ([`26c2295`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/26c2295ac24d7cdf01359cc4ffca64a8b45298c3))
+
+* fix: updated dev notes due to package published to PyPI ([`02c1efb`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/02c1efbb231a4c3e7a7b485fdb87abfde5b5235c))
+
+### Unknown
+
+* Merge pull request #82 from UBC-MDS/dev_note_pypi
+
+fix: updated dev notes due to package published to PyPI ([`30f0c95`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/30f0c958a7910fa446b823050fb5209cbeef30de))
+
+* Merge pull request #83 from UBC-MDS/env_function_difference
+
+fix: Feedback addressed by explaining how our functions are different ([`2dbe926`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/2dbe926b55a1e0d0d6244cd1fac14310cfb210d0))
+
+
 ## v2.1.0 (2024-01-30)
 
 ### Fix
