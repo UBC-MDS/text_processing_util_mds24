@@ -71,10 +71,9 @@ Removes punctuation, turns all characters in each document lower case and remove
 2.  `frequency_vectorizer`:
 Calculates the frequency of each word in a list of text documents.
 3.  `tfidf_vectorizer`:
-Calculates TF-IDF scores for a list of documents.
+Calculates the Term Frequency-Inverse Document Frequency (TF-IDF) scores for a given list of documents, providing a numerical representation that highlights the importance of terms within the context of the entire document set.
 4.  `tokenizer_padding`:
-Converts each text document into a list of numerical tokens, and pads shorter sequences so that each tokenized document has the same length.
-
+Converts each word into an individual token represented by a number and pads shorter sequences, but keeps the order of the original sentence, which is important for RNNs.
 
 ## Usage
 
