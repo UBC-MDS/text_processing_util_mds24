@@ -17,7 +17,7 @@ Our team, in alphabetical order:
 
 ## Developer Notes
 
-**Note:** Since this package has not been published to PyPI as of the latest release, please follow the following instructions to install the package from this GitHub repository.
+**Note:** For those who are looking to develop and/or test this package, please follow the following instructions to install the package from this GitHub repository.
 
 ### Installation
 
