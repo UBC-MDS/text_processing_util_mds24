@@ -2,6 +2,15 @@
 
 
 
+## v2.2.1 (2024-02-01)
+
+### Unknown
+
+* Merge pull request #97 from UBC-MDS/python_depend_version_update
+
+fix: Feedback adderessed by not limit upper boundary to python and nu… ([`365df2d`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/365df2db011b736cbf4ee5a421dc3c7d0e10009a))
+
+
 ## v2.2.0 (2024-02-01)
 
 ### Unknown
@@ -9,6 +18,8 @@
 * Merge pull request #95 from UBC-MDS/badges
 
 Feedback: Badges ([`faddab4`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/faddab41338fc8cec5ef8265bec63da3658c0950))
+
+* updated typo ([`d3b34de`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/d3b34de9abbb819fe894c81185b0907d10149794))
 
 
 ## v2.1.6 (2024-02-01)
@@ -20,6 +31,8 @@ Feedback: Badges ([`faddab4`](https://github.com/UBC-MDS/text_processing_util_md
 * feat: Feedback addressed by adding MIT license badge ([`fb20255`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/fb202556d83ea155161753ff9ae01bcf584c92be))
 
 ### Fix
+
+* fix: Feedback adderessed by not limit upper boundary to python and numpy versions ([`9f6495c`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/9f6495cea205726c151387c4cee96e3fad799ae0))
 
 * fix: implemented suggested changes
 
