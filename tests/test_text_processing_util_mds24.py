@@ -172,7 +172,7 @@ def test_tfidf_vectorizer_one_document():
     assert len(tfidf_matrix) == 1, "Unexpected number of rows in tfidf_matrix"
     assert len(feature_names) > 0, "Expected non-empty list for feature names"
     np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']), "Unexpected values in feature names")
+    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']), err_msg="Unexpected values in feature names")
 
 
 # Testing a list with one document being empty string for tfidf_vectorizer
