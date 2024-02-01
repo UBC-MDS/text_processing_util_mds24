@@ -2,6 +2,19 @@
 
 
 
+## v2.1.4 (2024-02-01)
+
+### Fix
+
+* fix: Feedback addressed by specifying correct conda env to avoid error ([`4941656`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/49416560150eec61a2200dfd7f89ce83e14ebaab))
+
+### Unknown
+
+* Merge pull request #93 from UBC-MDS/clarify_test_instruction
+
+fix: Feedback addressed by specifying correct conda env to avoid error ([`bd16938`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/bd16938c0e0b076d561b1ec00508d4ea2b081938))
+
+
 ## v2.1.3 (2024-02-01)
 
 ### Fix
