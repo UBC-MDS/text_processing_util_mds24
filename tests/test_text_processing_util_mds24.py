@@ -233,7 +233,7 @@ def test_tfidf_vectorizer_similar_content():
         [ 0.,  0., -0.10136628, -0.10136628, -0.10136628] 
     ])
     np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']), "Unexpected values in feature names")
+    np.testing.assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']), err_msg="Unexpected values in feature names")
 
 
 # Tests for tokenizer_padding
