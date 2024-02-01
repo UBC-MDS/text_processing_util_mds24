@@ -2,6 +2,19 @@
 
 
 
+## v2.1.3 (2024-02-01)
+
+### Fix
+
+* fix: Feedback addressed by adding assert messages for tokenizer_padding ([`cd6167c`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/cd6167c57ce9178e8dc4de2ee6a2c118606b0c32))
+
+### Unknown
+
+* Merge pull request #89 from UBC-MDS/assert_tokenizer_padding
+
+fix: Feedback addressed by adding assert messages for tokenizer_padding ([`456045e`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/456045ee8e47a2bd1f2e8da81173f7fdf2f95664))
+
+
 ## v2.1.2 (2024-01-31)
 
 ### Fix
