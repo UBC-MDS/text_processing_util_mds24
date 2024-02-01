@@ -2,11 +2,46 @@
 
 
 
+## v2.1.5 (2024-02-01)
+
+### Unknown
+
+* Merge pull request #91 from UBC-MDS/87-assert-messages
+
+fix: Feedback addressed by adding assert messages for tf-idf function ([`bff23fa`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/bff23faca5d13b56d6c1f365255fd3eb185b8f3d))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`1ed13e0`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/1ed13e0fa6df234f939eb8fbf22e171484dfad8b))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`3dcdb72`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/3dcdb72df3c3d5f263d264f92d7788c57684bfa9))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`4a1adc4`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/4a1adc408c16a8c2d08c46b7151ecd3307211d0f))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`4a4678a`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/4a4678a4a260bd4823da2cfba9954c4c5271c4b4))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`99ca99b`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/99ca99bbd74b885dbe51e0a03554fa961d59a2ed))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`2ef088e`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/2ef088e70ba1a63c1412d454c0d999af87b98b5f))
+
+
 ## v2.1.4 (2024-02-01)
 
 ### Fix
 
 * fix: Feedback addressed by specifying correct conda env to avoid error ([`4941656`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/49416560150eec61a2200dfd7f89ce83e14ebaab))
+
+* fix: Feedback addressed by adding assert messages for tf-idf function ([`e89a84a`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/e89a84a8f5961adcef1cdeb6292119bd2e13c22c))
 
 ### Unknown
 
