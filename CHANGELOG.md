@@ -2,6 +2,25 @@
 
 
 
+## v2.2.2 (2024-02-01)
+
+### Fix
+
+* fix: Feedback addressed by further explanations for poetry install ([`4767835`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/47678354a6b73b6bea85932f82cb8d5bace4df38))
+
+* fix: Feedback addressed by adding installation instruction to README file, for pip installation ([`a3eeb5c`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/a3eeb5caa63c9f096db94e7a8a2d61188536fc16))
+
+### Unknown
+
+* Merge pull request #98 from UBC-MDS/Readme_edit
+
+Feedback- Readme edit Installation and Poetry ([`5ff207b`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/5ff207b8c58e6cac7afec01892b852f385fa8c94))
+
+* Update README.md
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`353af68`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/353af682ffbb97ecce9a2ad90cc6b1a79d810bd3))
+
+
 ## v2.2.1 (2024-02-01)
 
 ### Unknown
