@@ -184,7 +184,7 @@ def test_tfidf_vectorizer_list_mixed_empty():
         [0., 0.13515504, 0., 0., 0., 0.13515504]
     ])
     np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['document', 'have', 'here', 'is', 'one', 'we']), "Unexpected values in feature names")
+    np.testing.assert_array_equal(feature_names, np.array(['document', 'have', 'here', 'is', 'one', 'we']), err_msg="Unexpected values in feature names")
 
 
 # Testing a list with only numbers and punctuations for tfidf_vectorizer
