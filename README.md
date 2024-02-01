@@ -1,53 +1,28 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # text_processing_util_mds24
+[![Documentation Status](https://readthedocs.org/projects/text-processing-util-mds24/badge/?version=latest)](https://text-processing-util-mds24.readthedocs.io/en/latest/?badge=latest)
 
-[![Documentation
-Status](https://readthedocs.org/projects/text-processing-util-mds24/badge/?version=latest)](https://text-processing-util-mds24.readthedocs.io/en/latest/?badge=latest)
+Welcome to the repository for text processing, a part of the DSCI-524 course by Group 10 in the MDS-V Cohort 8 at UBC.
 
-Welcome to the repository for text processing, a part of the DSCI-524
-course by Group 10 in the MDS-V Cohort 8 at UBC.
-
-Empower your text analysis workflows with text processing package, a
-Python library designed for streamlined text processing tasks. This
-versatile package offers four key functions: `text_clean` for noise
-removal and text refinement, `frequency_vectorizer` to generate
-frequency-based vectors, `tfidf_vectorizer` for TF-IDF vectorization,
-and `tokenizer_padding` to assist in tokenization and padding of text
-sequences for usage in recurrent neural networks. By simplifying
-essential text preprocessing steps, this package facilitates efficient
-text-based analysis, providing an easy-to-use toolkit for natural
-language processing and text modeling endeavors.
+Empower your text analysis workflows with text processing package, a Python library designed for streamlined text processing tasks. This versatile package offers four key functions: `text_clean` for noise removal and text refinement, `frequency_vectorizer` to generate frequency-based vectors, `tfidf_vectorizer` for TF-IDF vectorization, and `tokenizer_padding` to assist in tokenization and padding of text sequences for usage in recurrent neural networks. By simplifying essential text preprocessing steps, this package facilitates efficient text-based analysis, providing an easy-to-use toolkit for natural language processing and text modeling endeavors.
 
 ## Contributors
 
 Our team, in alphabetical order:
 
--   **Allan Lee**
--   **Jerry Yu**
--   **Mo Norouzi**
--   **Nasim Ghazanfari Nasrabadi**
+- **Allan Lee**
+- **Jerry Yu**
+- **Mo Norouzi**
+- **Nasim Ghazanfari Nasrabadi**
 
 ## Developer Notes
 
-**Note:** For those who are looking to develop and/or test this package,
-please follow the following instructions to install the package from
-this GitHub repository.
+**Note:** For those who are looking to develop and/or test this package, please follow the following instructions to install the package from this GitHub repository.
 
 ### Installation
 
-1.  First, please make sure that you have `poetry` and `conda` installed
-    on your local computer. If not, please follow the official
-    instructions for each respectively to install them.
-    ([`poetry`](https://python-poetry.org/docs/),
-    [`conda`](https://docs.conda.io/projects/miniconda/en/latest/))
+1.  First, please make sure that you have `poetry` and `conda` installed on your local computer. If not, please follow the official instructions for each respectively to install them. ([`poetry`](https://python-poetry.org/docs/), [`conda`](https://docs.conda.io/projects/miniconda/en/latest/))
 
-2.  It is recommended to create a conda virtual environment to install
-    the package by running the following commands:
+2.  It is recommended to create a conda virtual environment to install the package by running the following commands:
 
 ``` bash
 conda create --name text_processing_util_mds24 python=3.9 -y
@@ -60,9 +35,7 @@ conda activate text_processing_util_mds24
 git clone git@github.com:UBC-MDS/text_processing_util_mds24.git
 ```
 
-4.  From the root of this repository, install the package using `poetry`
-    by running the following command. It is recommended to use
-    `poetry install` command inside your conda environment.
+4.  From the root of this repository, install the package using `poetry` by running the following command. It is recommended to use `poetry install` command inside your conda environment.
 
 ``` bash
 poetry install
@@ -77,30 +50,21 @@ pip install text_processing_util_mds24
 
 ### Testing
 
-**Note:** Every function in this package except for `text_clean` calls
-`text_clean` in the first line of the code. Hence, testing for errors
-that arise from unexpected inputs is only done for `text_clean`.
-Integration testing is done for the other functions that call
-`text_clean`.
+**Note:** Every function in this package except for `text_clean` calls `text_clean` in the first line of the code. Hence, testing for errors that arise from unexpected inputs is only done for `text_clean`. Integration testing is done for the other functions that call `text_clean`.
 
-To test this package, please first make sure you have activated the
-`text_processing_util_mds24` conda environment that was created in the
-previous section. Then, please run the following command from the root
-directory of the repository:
+To test this package, please first make sure you have activated the `text_processing_util_mds24` conda environment that was created in the previous section. Then, please run the following command from the root directory of the repository:
 
 ``` bash
 pytest tests/
 ```
 
-If you would like to see line coverage, please run the following command
-from the root directory of the repository:
+If you would like to see line coverage, please run the following command from the root directory of the repository:
 
 ``` bash
 pytest --cov=text_processing_util_mds24
 ```
 
-If you would like to see branch coverage, please run the following
-command from the root directory of the repository:
+If you would like to see branch coverage, please run the following command from the root directory of the repository:
 
 ``` bash
 pytest --cov-branch --cov=text_processing_util_mds24
@@ -108,17 +72,14 @@ pytest --cov-branch --cov=text_processing_util_mds24
 
 ## Functions
 
-1.  `text_clean`: Removes punctuation, turns all characters in each
-    document lower case and removes numbers in documents.
-2.  `frequency_vectorizer`: Calculates the frequency of each word in a
-    list of text documents.
-3.  `tfidf_vectorizer`: Calculates the Term Frequency-Inverse Document
-    Frequency (TF-IDF) scores for a given list of documents, providing a
-    numerical representation that highlights the importance of terms
-    within the context of the entire document set.
-4.  `tokenizer_padding`: Converts each word into an individual token
-    represented by a number and pads shorter sequences, but keeps the
-    order of the original sentence, which is important for RNNs.
+1.  `text_clean`:
+Removes punctuation, turns all characters in each document lower case and removes numbers in documents.
+2.  `frequency_vectorizer`:
+Calculates the frequency of each word in a list of text documents.
+3.  `tfidf_vectorizer`:
+Calculates the Term Frequency-Inverse Document Frequency (TF-IDF) scores for a given list of documents, providing a numerical representation that highlights the importance of terms within the context of the entire document set.
+4.  `tokenizer_padding`:
+Converts each word into an individual token represented by a number and pads shorter sequences, but keeps the order of the original sentence, which is important for RNNs.
 
 ## Usage
 
@@ -186,50 +147,33 @@ print(tokenized_padded)
 
 ## Documentation
 
-The official documentation for this package is hosted on Read the Docs:
-<https://text-processing-util-mds24.readthedocs.io/en/latest/>.
+The official documentation for this package is hosted on Read the Docs: <https://text-processing-util-mds24.readthedocs.io/en/latest/>.
 
 ## Ecosystem
 
-This package is intended to clean and transform texts into different
-representations to feed into machine learning algorithms. Scikit-learn
-and Keras provide similar functionalities.
+This package is intended to clean and transform texts into different representations to feed into machine learning algorithms. Scikit-learn and Keras provide similar functionalities.
 
 `frequency_vectorizer`:
-<https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html>
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
 
 `tfidf_vectorizer`:
-<https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html>
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
 
 `tokenizer_padding`:
 
--   <https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer>
--   <https://www.tensorflow.org/api_docs/python/tf/keras/utils/pad_sequences>
+- https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer
+- https://www.tensorflow.org/api_docs/python/tf/keras/utils/pad_sequences
 
-Still, our functions are different in some ways. `frequency_vectorizer`
-calculates the relative frequency of each word with regards to the total
-number of words in its document rather than giving the raw counts.
-`tokenizer_padding` combines what would be an otherwise two-step process
-if one were to use Keras into one step. Both `tfidf_vectorizer` and
-`tokenizer_padding` offer simpler functional APIs and implementations
-compared to the implementations from scikit-learn and Keras
-respectively.
+Still, our functions are different in some ways. `frequency_vectorizer` calculates the relative frequency of each word with regards to the total number of words in its document rather than giving the raw counts. `tokenizer_padding` combines what would be an otherwise two-step process if one were to use Keras into one step. Both `tfidf_vectorizer` and `tokenizer_padding` offer simpler functional APIs and implementations compared to the implementations from scikit-learn and Keras respectively.
 
 ## Contributing
 
-Interested in contributing? Check out the contributing guidelines.
-Please note that this project is released with a Code of Conduct. By
-contributing to this project, you agree to abide by its terms.
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
 
 ## License
 
-`text_processing_util_mds24` was created by Jerry Yu, Nasim Ghazanfari
-Nasrabadi, Mohammad Norouzi, Allan Lee. It is licensed under the terms
-of the MIT license.
+`text_processing_util_mds24` was created by Jerry Yu, Nasim Ghazanfari Nasrabadi, Mohammad Norouzi, Allan Lee. It is licensed under the terms of the MIT license.
 
 ## Credits
 
-`text_processing_util_mds24` was created with
-[`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the
-`py-pkgs-cookiecutter`
-[template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+`text_processing_util_mds24` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
