@@ -20,24 +20,24 @@ Our team, in alphabetical order:
 
 ### Installation
 
-1.  First, please make sure that you have `poetry` and `conda` installed on your local computer. If not, please follow the official instructions for each respectively to install them. ([`poetry`](https://python-poetry.org/docs/), [`conda`](https://docs.conda.io/projects/miniconda/en/latest/))
+1. First, please make sure that you have `poetry` and `conda` installed on your local computer. If not, please follow the official instructions for each respectively to install them. ([`poetry`](https://python-poetry.org/docs/), [`conda`](https://docs.conda.io/projects/miniconda/en/latest/))
 
-2.  It is recommended to create a conda virtual environment to install the package by running the following commands:
+2. It is recommended to create a conda virtual environment to install the package by running the following commands:
 
-``` bash
+```bash
 conda create --name text_processing_util_mds24 python=3.9 -y
 conda activate text_processing_util_mds24
 ```
 
-3.  Clone the repository to your local machine by running:
+3. Clone the repository to your local machine by running:
 
-``` bash
+```bash
 git clone git@github.com:UBC-MDS/text_processing_util_mds24.git
 ```
 
-4.  From the root of this repository, install the package using `poetry` by running the following command. It is recommended to use `poetry install` command inside your conda environment.
+4. From the root of this repository, install the package using `poetry` by running the following command. It is recommended to use `poetry install` command inside your conda environment.
 
-``` bash
+```bash
 poetry install
 ```
 
@@ -54,19 +54,19 @@ pip install text_processing_util_mds24
 
 To test this package, please first make sure you have activated the `text_processing_util_mds24` conda environment that was created in the previous section. Then, please run the following command from the root directory of the repository:
 
-``` bash
+```bash
 pytest tests/
 ```
 
 If you would like to see line coverage, please run the following command from the root directory of the repository:
 
-``` bash
+```bash
 pytest --cov=text_processing_util_mds24
 ```
 
 If you would like to see branch coverage, please run the following command from the root directory of the repository:
 
-``` bash
+```bash
 pytest --cov-branch --cov=text_processing_util_mds24
 ```
 
@@ -87,7 +87,7 @@ Here are some examples of usage of the functions in this package.
 
 Example of using `text_clean`:
 
-``` python
+```python
 from text_processing_util_mds24 import (
     text_clean,
     tfidf_vectorizer,
@@ -97,21 +97,19 @@ from text_processing_util_mds24 import (
 docs = ["Here is document one.", "", "we have document 2"]
 print(text_clean(docs))
 ```
-
-``` text
+```text
 [['here', 'is', 'document', 'one'], [], ['we', 'have', 'document']]
 ```
 
 Example of using `frequency_vectorizer`:
 
-``` python
+```python
 docs = ["apple orange banana", "apple banana banana"]
 result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
 print(result_tf_matrix)
 print(result_feature_names)
 ```
-
-``` text
+```text
 [[0.33333333 0.33333333 0.33333333]
  [0.33333333 0.66666667 0.        ]]
 ['apple', 'banana', 'orange']
@@ -119,14 +117,13 @@ print(result_feature_names)
 
 Example of using `tfidf_vectorizer`:
 
-``` python
+```python
 docs = ["machine learning is interesting", "machine learning is fascinating"]
 tfidf_matrix, feature_names = tfidf_vectorizer(docs)
 print(tfidf_matrix)
 print(feature_names)
 ```
-
-``` text
+```text
 [[ 0.          0.         -0.10136628 -0.10136628 -0.10136628]
  [ 0.          0.         -0.10136628 -0.10136628 -0.10136628]]
 ['fascinating', 'interesting', 'is', 'learning', 'machine']
@@ -134,20 +131,20 @@ print(feature_names)
 
 Example of using `tokenizer_padding`:
 
-``` python
+```python
 docs = ["one two three", "one three four five"]
 tokenized_padded = tokenizer_padding(docs)
 print(tokenized_padded)
 ```
-
-``` text
+```text
 [[1. 2. 3. 0.]
  [1. 3. 4. 5.]]
 ```
 
 ## Documentation
 
-The official documentation for this package is hosted on Read the Docs: <https://text-processing-util-mds24.readthedocs.io/en/latest/>.
+The official documentation for this package is hosted on Read the Docs: https://text-processing-util-mds24.readthedocs.io/en/latest/.
+
 
 ## Ecosystem
 
