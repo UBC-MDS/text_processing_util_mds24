@@ -2,13 +2,30 @@
 
 
 
+## v2.2.0 (2024-02-01)
+
+### Unknown
+
+* Merge pull request #95 from UBC-MDS/badges
+
+Feedback: Badges ([`faddab4`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/faddab41338fc8cec5ef8265bec63da3658c0950))
+
+
 ## v2.1.6 (2024-02-01)
+
+### Feature
+
+* feat: Feedback addressed by adding more badges for versions ([`935a9a3`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/935a9a366eef3169566181f7ee708b1c598a3c51))
+
+* feat: Feedback addressed by adding MIT license badge ([`fb20255`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/fb202556d83ea155161753ff9ae01bcf584c92be))
 
 ### Fix
 
 * fix: implemented suggested changes
 
 Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`ee1d45f`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/ee1d45f34d09e74aaca86ba73321641ac8c12983))
+
+* fix: reorder badges ([`2180ef1`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/2180ef1daef4712fae2470f2cff2513b68d2ff29))
 
 ### Unknown
 
@@ -81,6 +98,10 @@ fix: Feedback addressed by adding assert messages for tokenizer_padding ([`45604
 
 
 ## v2.1.2 (2024-01-31)
+
+### Feature
+
+* feat: Feedback addressed by adding new badges ([`c03ce6e`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/c03ce6e31c9cb30812b5724db5a9d40391c2cfbd))
 
 ### Fix
 
