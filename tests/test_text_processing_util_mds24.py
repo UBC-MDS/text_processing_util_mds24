@@ -240,38 +240,44 @@ def test_tfidf_vectorizer_similar_content():
 # Testing an empty list for tokenizer_padding
 def test_tokenizer_padding_empty_list():
     tokenized_padded = tokenizer_padding(empty_list)
-    np.testing.assert_array_equal(tokenized_padded, np.array([]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([]),
+                                  err_msg="Function should return an empty array.")
 
 
 # Testing a list of one empty string for tokenizer_padding
 def test_tokenizer_padding_list_empty_str():
     tokenized_padded = tokenizer_padding(list_empty_str)
-    np.testing.assert_array_equal(tokenized_padded, np.array([[]]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([[]]),
+                                  err_msg="Function should return an empty 2D array.")
 
 
 # Testing a list with one document for tokenizer_padding
 def test_tokenizer_padding_one_doc():
     tokenized_padded = tokenizer_padding(one_doc)
-    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 4, 5, 6]]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 4, 5, 6]]),
+                                  err_msg="Function returns incorrect output.")
 
 
 # Testing a list with one document being empty string for tokenizer_padding
 def test_tokenizer_padding_list_mixed_empty():
     tokenized_padded = tokenizer_padding(list_mixed_empty)
-    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 4], [0, 0, 0, 0], [5, 6, 3, 0]]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 4], [0, 0, 0, 0], [5, 6, 3, 0]]),
+                                  err_msg="Function returns incorrect output.")
 
 
 # Testing a list with only numbers and punctuations for tokenizer_padding
 def test_tokenizer_padding_list_num_punctuation():
     tokenized_padded = tokenizer_padding(list_num_punctuation)
-    np.testing.assert_array_equal(tokenized_padded, np.array([[], [], []]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([[], [], []]),
+                                  err_msg="Function should return an empty 2D array of length 3.")
 
 
 # Testing a list of documents of equal length for tokenizer_padding
 def test_tokenizer_padding_equal_lists():
     equal_lists = ["My first document 1.", "My first 5 documents!", "the Great doc"]
     tokenized_padded = tokenizer_padding(equal_lists)
-    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3], [1, 2, 4], [5, 6, 7]]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3], [1, 2, 4], [5, 6, 7]]),
+                                  err_msg="Function returns incorrect output.")
 
 
 # Testing a list of documents of unequal lengths for tokenizer_padding
@@ -283,19 +289,22 @@ def test_tokenizer_padding_unequal_lists():
     np.testing.assert_array_equal(tokenized_padded,
                                   np.array([[1, 2, 3, 4, 5, 6, 7, 8, 1, 9, 10, 11],
                                             [12, 13, 5, 14, 0, 0, 0, 0, 0, 0, 0, 0],
-                                            [2, 15, 7, 5, 16, 6, 0, 0, 0, 0, 0, 0]]))
+                                            [2, 15, 7, 5, 16, 6, 0, 0, 0, 0, 0, 0]]),
+                                  err_msg="Function returns incorrect output.")
 
 
 # Testing a list of documents with repeated words for tokenizer_padding
 def test_tokenizer_padding_repeats():
     repeats = ["one two three", "one three four five"]
     tokenized_padded = tokenizer_padding(repeats)
-    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 0], [1, 3, 4, 5]]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3, 0], [1, 3, 4, 5]]),
+                                  err_msg="Function returns incorrect output.")
 
 
 # Teseting a list of documents without repeated words for tokenizer_padding
 def test_tokenizer_padding_no_repeats():
     no_repeats = ["one two three", "four five six"]
     tokenized_padded = tokenizer_padding(no_repeats)
-    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3], [4, 5, 6]]))
+    np.testing.assert_array_equal(tokenized_padded, np.array([[1, 2, 3], [4, 5, 6]]),
+                                  err_msg="Function returns incorrect output.")
 
