@@ -220,7 +220,7 @@ def test_tfidf_vectorizer_repeated_words():
         [-0.13515504, -0.27031007,  0.] 
     ])
     np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['apple', 'banana', 'orange']), "Unexpected values in feature names")
+    np.testing.assert_array_equal(feature_names, np.array(['apple', 'banana', 'orange']), err_msg="Unexpected values in feature names")
 
 
 # Testing a list with similar documents for tfidf_vectorizer
