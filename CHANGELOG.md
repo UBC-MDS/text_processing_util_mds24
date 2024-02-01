@@ -2,6 +2,21 @@
 
 
 
+## v2.1.6 (2024-02-01)
+
+### Fix
+
+* fix: implemented suggested changes
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`ee1d45f`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/ee1d45f34d09e74aaca86ba73321641ac8c12983))
+
+### Unknown
+
+* Merge pull request #92 from UBC-MDS/test_fail_msg_text_clean
+
+fix: added test fail message for text_clean() ([`53a7156`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/53a71560593e84ab114feca8bb8f3e7e5c2f88f1))
+
+
 ## v2.1.5 (2024-02-01)
 
 ### Unknown
@@ -40,6 +55,8 @@ Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`2ef
 ### Fix
 
 * fix: Feedback addressed by specifying correct conda env to avoid error ([`4941656`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/49416560150eec61a2200dfd7f89ce83e14ebaab))
+
+* fix: added test fail message for text_clean() ([`734e7e1`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/734e7e1e4889b441323300d90c52fcd6a9f1bf0b))
 
 * fix: Feedback addressed by adding assert messages for tf-idf function ([`e89a84a`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/e89a84a8f5961adcef1cdeb6292119bd2e13c22c))
 
