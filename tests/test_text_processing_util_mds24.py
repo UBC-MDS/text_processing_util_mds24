@@ -190,8 +190,8 @@ def test_tfidf_vectorizer_list_mixed_empty():
 # Testing a list with only numbers and punctuations for tfidf_vectorizer
 def test_tfidf_vectorizer_list_num_punctuation():
     tfidf_matrix, feature_names = tfidf_vectorizer(list_num_punctuation)
-    np.testing.assert_array_equal(tfidf_matrix, np.empty((3,0)), "Unexpected shape for tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array([]), "Expected an empty list for feature names")
+    np.testing.assert_array_equal(tfidf_matrix, np.empty((3,0)), err_msg="Unexpected shape and/or non-empty array for tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array([]), err_msg="Expected an empty list for feature names")
 
 
 # Testing a list with multiple documents for tfidf_vectorizer
