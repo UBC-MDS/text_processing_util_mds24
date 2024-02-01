@@ -44,7 +44,7 @@ conda activate text_processing_util_mds24
 git clone git@github.com:UBC-MDS/text_processing_util_mds24.git
 ```
 
-4.  From the root of this repository, install the package using `poetry` by running the following command:
+4.  From the root of this repository, install the package using `poetry` by running the following command. It is recommended to use `poetry install` command inside your conda environment.
 
 ``` bash
 poetry install
