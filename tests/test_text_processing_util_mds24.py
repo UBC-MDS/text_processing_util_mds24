@@ -22,38 +22,46 @@ def test_text_clean_split_correct():
     test_str = ['hi!! wE are gRoup 30 . ',
                 ' i at 12  bananas ']
     cleaned_doc = text_clean(test_str)
-    assert len(cleaned_doc) == 2
-    assert sorted(cleaned_doc[0]) == sorted(['hi', 'we', 'are', 'group'])
+    assert len(cleaned_doc) == 2, 'number of docs is incorrect'
+    assert sorted(cleaned_doc[0]) == sorted(['hi', 'we', 'are', 'group']), \
+        'not clearning texts correctly'
 
-    assert sorted(cleaned_doc[1]) == sorted(['i', 'at', 'bananas'])
+    assert sorted(cleaned_doc[1]) == sorted(['i', 'at', 'bananas']), \
+        'not cleaning texts correctly'
 
 
 # Testing an empty list for text_clean
 def test_text_clean_empty_list():
-    assert text_clean(empty_list) == empty_list
+    assert text_clean(empty_list) == empty_list, \
+        'not returning empty list after passing ampty list'
 
 
 # Testing a list of one empty string for text_clean
 def test_text_clean_list_empty_str():
-    assert text_clean(list_empty_str) == [[]]
+    assert text_clean(list_empty_str) == [[]], \
+        'not returning empty list of list after passing an empty doc'
 
 
 # Testing a list with one document for text_clean
 def test_text_clean_one_doc():
     cleaned_doc = text_clean(one_doc)
-    assert len(cleaned_doc) == 1
+    assert len(cleaned_doc) == 1, 'number of docs is incorrect'
     assert sorted(cleaned_doc[0]) \
            == sorted(['this', 'is', 'a', 'document', 'with', 'string'])
 
 
 # Testing an invalid input for text_clean
 def test_text_clean_invalid_input():
+    # raise error if calling function with wrong
+    # input type did not raise TypeError
     with pytest.raises(TypeError):
         text_clean(None)
 
 
 # Testing a list with invalid input for text_clean
 def test_text_clean_invalid_doc():
+    # raise error if calling function with wrong
+    # input type did not raise TypeError
     with pytest.raises(TypeError):
         text_clean(list_invalid)
 
@@ -61,16 +69,21 @@ def test_text_clean_invalid_doc():
 # Testing a list with one document being empty string for text_clean
 def test_text_clean_mixed_empty():
     cleaned_doc = text_clean(list_mixed_empty)
-    assert len(cleaned_doc) == 3
-    assert sorted(cleaned_doc[0]) == sorted(['here', 'is', 'document', 'one'])
-    assert cleaned_doc[1] == []
-    assert sorted(cleaned_doc[2]) == sorted(['we', 'have', 'document'])
+    assert len(cleaned_doc) == 3, 'number of docs is incorrect'
+    assert (sorted(cleaned_doc[0])
+            == sorted(['here', 'is', 'document', 'one'])), \
+        'Incorrect output with one document being empty'
+    assert cleaned_doc[1] == [], \
+        'Incorrect output with one document being empty'
+    assert sorted(cleaned_doc[2]) == sorted(['we', 'have', 'document']), \
+        'Incorrect output with one document being empty'
 
 
 # Testing a list with only numbers and punctuations for text_clean
 def test_text_clean_list_num_punctuation():
     cleaned_doc = text_clean(list_num_punctuation)
-    assert cleaned_doc == [[], [], []]
+    assert cleaned_doc == [[], [], []], \
+        'Incorrect output for all empty documents'
 
 
 # Tests for frequency_vectorizer
