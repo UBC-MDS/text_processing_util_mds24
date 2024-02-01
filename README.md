@@ -46,7 +46,7 @@ poetry install
 
 **Note:** Every function in this package except for `text_clean` calls `text_clean` in the first line of the code. Hence, testing for errors that arise from unexpected inputs is only done for `text_clean`. Integration testing is done for the other functions that call `text_clean`.
 
-To test this package, please run the following command from the root directory of the repository:
+To test this package, please first make sure you have activated the `text_processing_util_mds24` conda environment that was created in the previous section. Then, please run the following command from the root directory of the repository:
 
 ```bash
 pytest tests/
