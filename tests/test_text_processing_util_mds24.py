@@ -157,8 +157,8 @@ def test_tfidf_vectorizer_empty_list():
 # Testing a list of one empty string for tfidf_vectorizer
 def test_tfidf_vectorizer_list_empty_str():
     tfidf_matrix, feature_names = tfidf_vectorizer(list_empty_str)
-    np.testing.assert_array_equal(tfidf_matrix, np.empty((1,0)), "Unexpected shape for tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array([]), "Expected an empty list for feature names")
+    np.testing.assert_array_equal(tfidf_matrix, np.empty((1,0)), err_msg="Unexpected shape and/or non-empty array for tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array([]), err_msg="Expected an empty list for feature names")
 
 
 # Testing a list with one document for tfidf_vectorizer
