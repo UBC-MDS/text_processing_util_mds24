@@ -5,6 +5,7 @@
 [![Python 3.9.0](https://img.shields.io/badge/python-3.9.0-blue.svg)](https://www.python.org/downloads/release/python-390/)
 ![PyPI - Version](https://img.shields.io/pypi/v/text-processing-util-mds24)
 [![codecov](https://codecov.io/gh/UBC-MDS/text_processing_util_mds24/graph/badge.svg?token=0cuB4J7YN9)](https://codecov.io/gh/UBC-MDS/text_processing_util_mds24)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Welcome to the repository for text processing, a part of the DSCI-524 course by Group 10 in the MDS-V Cohort 8 at UBC.
 
