@@ -1,5 +1,14 @@
 # text_processing_util_mds24
+[![ci-cd](https://github.com/UBC-MDS/text_processing_util_mds24/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/text_processing_util_mds24/actions/workflows/ci-cd.yml)
+[![codecov](https://codecov.io/gh/UBC-MDS/text_processing_util_mds24/graph/badge.svg?token=0cuB4J7YN9)](https://codecov.io/gh/UBC-MDS/text_processing_util_mds24)
 [![Documentation Status](https://readthedocs.org/projects/text-processing-util-mds24/badge/?version=latest)](https://text-processing-util-mds24.readthedocs.io/en/latest/?badge=latest)
+[![PyPI - Version](https://img.shields.io/pypi/v/text-processing-util-mds24)](https://pypi.org/project/text-processing-util-mds24/)
+[![Python 3.9.0](https://img.shields.io/badge/python-3.9.0-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![version](https://img.shields.io/github/v/release/UBC-MDS/text_processing_util_mds24)](https://github.com/UBC-MDS/text_processing_util_mds24/releases)
+[![release](https://img.shields.io/github/release-date/UBC-MDS/text_processing_util_mds24)](https://github.com/UBC-MDS/text_processing_util_mds24/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+
 
 Welcome to the repository for text processing, a part of the DSCI-524 course by Group 10 in the MDS-V Cohort 8 at UBC.
 
