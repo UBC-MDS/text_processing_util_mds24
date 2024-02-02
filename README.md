@@ -18,14 +18,14 @@ Empower your text analysis workflows with text processing package, a Python libr
 
 Our team, in alphabetical order:
 
--   **Allan Lee**
--   **Jerry Yu**
--   **Mo Norouzi**
--   **Nasim Ghazanfari Nasrabadi**
+- **Allan Lee**
+- **Jerry Yu**
+- **Mo Norouzi**
+- **Nasim Ghazanfari Nasrabadi**
 
 ## Installation
 
-For installation, please run the following command:
+To install the package from PyPI, please run the following command:
 
 ``` bash
 pip install text-processing-util-mds24
@@ -35,24 +35,24 @@ pip install text-processing-util-mds24
 
 **Note:** For those who are looking to develop and/or test this package, please follow the following instructions to install the package from this GitHub repository.
 
-### Installation
+### Installation from Repository
 
-1.  First, please make sure that you have `poetry` and `conda` installed on your local computer. If not, please follow the official instructions for each respectively to install them. ([`poetry`](https://python-poetry.org/docs/), [`conda`](https://docs.conda.io/projects/miniconda/en/latest/))
+1. First, please make sure that you have `poetry` and `conda` installed on your local computer. If not, please follow the official instructions for each respectively to install them. ([`poetry`](https://python-poetry.org/docs/), [`conda`](https://docs.conda.io/projects/miniconda/en/latest/))
 
-2.  It is recommended to create a conda virtual environment to install the package by running the following commands:
+2. It is recommended to create a conda virtual environment to install the package by running the following commands:
 
 ``` bash
 conda create --name text_processing_util_mds24 python=3.9 -y
 conda activate text_processing_util_mds24
 ```
 
-3.  Clone the repository to your local machine by running:
+3. Clone the repository to your local machine by running:
 
 ``` bash
 git clone git@github.com:UBC-MDS/text_processing_util_mds24.git
 ```
 
-4.  From the root of this repository, install the package using `poetry` by running the following command. It is recommended to use `poetry install` command inside your conda environment.
+4. From the root of this repository, install the package using `poetry` by running the following command. It is recommended to make sure that you are in the conda environment from Step 2 before running this command.
 
 ``` bash
 poetry install
@@ -82,10 +82,10 @@ pytest --cov-branch --cov=text_processing_util_mds24
 
 ## Functions
 
-1.  `text_clean`: Removes punctuation, turns all characters in each document lower case and removes numbers in documents.
-2.  `frequency_vectorizer`: Calculates the frequency of each word in a list of text documents.
-3.  `tfidf_vectorizer`: Calculates the Term Frequency-Inverse Document Frequency (TF-IDF) scores for a given list of documents, providing a numerical representation that highlights the importance of terms within the context of the entire document set.
-4.  `tokenizer_padding`: Converts each word into an individual token represented by a number and pads shorter sequences, but keeps the order of the original sentence, which is important for RNNs.
+1. `text_clean`: Removes punctuation, turns all characters in each document lower case and removes numbers in documents.
+2. `frequency_vectorizer`: Calculates the frequency of each word in a list of text documents.
+3. `tfidf_vectorizer`: Calculates the Term Frequency-Inverse Document Frequency (TF-IDF) scores for a given list of documents, providing a numerical representation that highlights the importance of terms within the context of the entire document set.
+4. `tokenizer_padding`: Converts each word into an individual token represented by a number and pads shorter sequences, but keeps the order of the original sentence, which is important for RNNs.
 
 ## Usage
 
@@ -151,6 +151,8 @@ print(tokenized_padded)
  [1. 3. 4. 5.]]
 ```
 
+For more demonstration of the functions in `text_processing_util_mds24` using a more real-life text sample, please see our [vignette](https://text-processing-util-mds24.readthedocs.io/en/latest/example.html).
+
 ## Documentation
 
 The official documentation for this package is hosted on Read the Docs: <https://text-processing-util-mds24.readthedocs.io/en/latest/>.
@@ -165,10 +167,10 @@ This package is intended to clean and transform texts into different representat
 
 `tokenizer_padding`:
 
--   <https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer>
--   <https://www.tensorflow.org/api_docs/python/tf/keras/utils/pad_sequences>
+- <https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer>
+- <https://www.tensorflow.org/api_docs/python/tf/keras/utils/pad_sequences>
 
-Still, our functions are different in some ways. `frequency_vectorizer` calculates the relative frequency of each word with regards to the total number of words in its document rather than giving the raw counts. `tokenizer_padding` combines what would be an otherwise two-step process if one were to use Keras into one step. Both `tfidf_vectorizer` and `tokenizer_padding` offer simpler functional APIs and implementations compared to the implementations from scikit-learn and Keras respectively.
+Still, our functions are different in some ways. `frequency_vectorizer` calculates the relative frequency of each word with regards to the total number of words in its document rather than the raw word counts. `tokenizer_padding` combines what would be an otherwise two-step process if one were to use Keras into one step. Both `tfidf_vectorizer` and `tokenizer_padding` offer simpler functional APIs and implementations compared to the implementations from scikit-learn and Keras respectively.
 
 ## Contributing
 
