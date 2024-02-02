@@ -101,8 +101,8 @@ def test_frequency_vectorizer_single_doc():
     expected_matrix = np.array([[1/6, 1/6, 1/6, 1/6, 1/6, 1/6]])
     expected_feature_names = np.array(['a', 'document', 'is', 'string', 'this', 'with'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix), "Incorrect frequency matrix for a single document."
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names), "Incorrect feature names for a single document."
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for a single document.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for a single document.")
 
 # Testing a list of one empty string for frequency_vectorizer
 def test_frequency_vectorizer_list_empty_str():
