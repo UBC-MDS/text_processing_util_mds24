@@ -136,8 +136,8 @@ def test_frequency_vectorizer_multiple_docs():
     expected_matrix = np.array([[0.2, 0., 0.2 , 0. , 0.2 , 0.2 , 0. , 0.2 ], [0. , 0.25 ,0.25 ,0.25, 0. , 0., 0.25, 0.]])
     expected_feature_names = np.array(['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix), "Incorrect frequency matrix for multiple documents."
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names), "Incorrect feature names for multiple documents."
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for multiple documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for multiple documents.")
 
 # Testing an additional case of multiple documents for frequency_vectorizer
 def test_frequency_vectorizer_additional_case():
