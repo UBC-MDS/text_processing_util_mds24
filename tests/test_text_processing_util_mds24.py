@@ -125,8 +125,8 @@ def test_frequency_vectorizer_list_mixed_empty():
     expected_matrix = np.array([[0.25, 0, 0.25, 0.25, 0.25, 0], [0, 0, 0, 0, 0, 0], [1/3, 1/3, 0, 0, 0, 1/3]])
     expected_feature_names = np.array(['document', 'have', 'here', 'is', 'one', 'we'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix), "Incorrect frequency matrix for a list with mixed empty documents."
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names), "Incorrect feature names for a list with mixed empty documents."
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for a list with mixed empty documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for a list with mixed empty documents.")
 
 # Testing multiple documents for frequency_vectorizer
 def test_frequency_vectorizer_multiple_docs():
