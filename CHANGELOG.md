@@ -2,6 +2,43 @@
 
 
 
+## v2.2.3 (2024-02-02)
+
+### Fix
+
+* fix: Feedback addressed by adding test error messages for freq function ([`2b17cb4`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/2b17cb4a1c86f367a2f8a1631a828b19c31c58ba))
+
+### Unknown
+
+* Merge pull request #99 from UBC-MDS/test_frequency
+
+fix: Feedback addressed by adding test error messages for freq function ([`3c27208`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/3c272082deedb43723f833bc8b183a6e39e6033a))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`80b9b8f`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/80b9b8f5fdaa99ecd5bf56b029f8b2af2d17efb9))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`8f4021a`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/8f4021afde55888d6a48fde7f1e434054833bda0))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`5d46f57`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/5d46f57f216c7d1069d1f8613e88643ed40030a7))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`a05fc19`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/a05fc19cb21600b09cc8f8602b51138683c63f5d))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`dba5e4e`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/dba5e4e879dc12d64cb4f7456d874f5740c9a1fa))
+
+* Update tests/test_text_processing_util_mds24.py
+
+Co-authored-by: Jerry Yu &lt;74574486+jy1909@users.noreply.github.com&gt; ([`ab94cdd`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/ab94cddd1a6b8bba61da6074a5adea1de4f9e003))
+
+
 ## v2.2.2 (2024-02-01)
 
 ### Fix
