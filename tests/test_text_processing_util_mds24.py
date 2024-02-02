@@ -108,8 +108,8 @@ def test_frequency_vectorizer_single_doc():
 def test_frequency_vectorizer_list_empty_str():
     result_tf_matrix, result_feature_names = frequency_vectorizer(list_empty_str)
 
-    np.testing.assert_array_equal(result_tf_matrix, np.empty((1,0))), "Expected an empty array for an empty string in the list."
-    np.testing.assert_array_equal(result_feature_names, np.array([])), "Expected an empty array for feature names when there is an empty string in the list."
+    np.testing.assert_array_equal(result_tf_matrix, np.empty((1,0)), err_msg="Expected an empty array for an empty string in the list.")
+    np.testing.assert_array_equal(result_feature_names, np.array([]), err_msg="Expected an empty array for feature names when there is an empty string in the list.")
 
 # Testing a list with only numbers and punctuations for frequency_vectorizer
 def test_frequency_vectorizer_list_num_punctuation():
