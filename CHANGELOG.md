@@ -2,6 +2,21 @@
 
 
 
+## v2.2.4 (2024-02-02)
+
+### Fix
+
+* fix: minor fix to formatting ([`f4eb678`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/f4eb678f2405a85aea9904234c9ddc315ee80bc2))
+
+* fix: minor rewording and formatting on readme ([`9f34eba`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/9f34ebab82fd5885359c0b7e75ab6a70f2a586bf))
+
+### Unknown
+
+* Merge pull request #101 from UBC-MDS/review_milestone_4
+
+Review milestone 4 ([`64a6dbc`](https://github.com/UBC-MDS/text_processing_util_mds24/commit/64a6dbc3e19e0c297a8edf67d7419c602687b351))
+
+
 ## v2.2.3 (2024-02-02)
 
 ### Fix
