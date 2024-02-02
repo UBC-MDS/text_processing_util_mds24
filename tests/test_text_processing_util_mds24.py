@@ -91,9 +91,8 @@ def test_text_clean_list_num_punctuation():
 def test_frequency_vectorizer_empty_docs():
     result_tf_matrix, result_feature_names = frequency_vectorizer(empty_list)
 
-    assert np.array_equal(result_tf_matrix, np.array([]))
-    assert np.array_equal(result_feature_names, np.array([]))
-
+    assert np.array_equal(result_tf_matrix, np.array([])), "Expected an empty array for an empty list."
+    assert np.array_equal(result_feature_names, np.array([])), "Expected an empty array for feature names in an empty list."
 
 # Testing a list with one document for frequency_vectorizer
 def test_frequency_vectorizer_single_doc():
@@ -102,50 +101,43 @@ def test_frequency_vectorizer_single_doc():
     expected_matrix = np.array([[1/6, 1/6, 1/6, 1/6, 1/6, 1/6]])
     expected_feature_names = np.array(['a', 'document', 'is', 'string', 'this', 'with'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
-
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for a single document.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for a single document.")
 
 # Testing a list of one empty string for frequency_vectorizer
 def test_frequency_vectorizer_list_empty_str():
     result_tf_matrix, result_feature_names = frequency_vectorizer(list_empty_str)
 
-    np.testing.assert_array_equal(result_tf_matrix, np.empty((1,0)))
-    np.testing.assert_array_equal(result_feature_names, np.array([]))
-
+    np.testing.assert_array_equal(result_tf_matrix, np.empty((1,0)), err_msg="Expected an empty array for an empty string in the list.")
+    np.testing.assert_array_equal(result_feature_names, np.array([]), err_msg="Expected an empty array for feature names when there is an empty string in the list.")
 
 # Testing a list with only numbers and punctuations for frequency_vectorizer
 def test_frequency_vectorizer_list_num_punctuation():
     result_tf_matrix, result_feature_names = frequency_vectorizer(list_num_punctuation)
 
-    np.testing.assert_array_equal(result_tf_matrix, np.empty((3,0)))
-    np.testing.assert_array_equal(result_feature_names, np.array([]))
+    np.testing.assert_array_equal(result_tf_matrix, np.empty((3,0)), err_msg="Expected an empty array for a list with only numbers and punctuations.")
+    np.testing.assert_array_equal(result_feature_names, np.array([]), err_msg="Expected an empty array for feature names when the list has only numbers and punctuations.")
 
-
-# Testing a list with one document being empty string for frequency_vectorizer
+# Testing a list with one document being an empty string for frequency_vectorizer
 def test_frequency_vectorizer_list_mixed_empty():
     result_tf_matrix, result_feature_names = frequency_vectorizer(list_mixed_empty)
 
-    expected_matrix = np.array([[0.25, 0, 0.25, 0.25, 0.25, 0],
-                                [0, 0, 0, 0, 0, 0],
-                                [1/3, 1/3, 0, 0, 0, 1/3]])
+    expected_matrix = np.array([[0.25, 0, 0.25, 0.25, 0.25, 0], [0, 0, 0, 0, 0, 0], [1/3, 1/3, 0, 0, 0, 1/3]])
     expected_feature_names = np.array(['document', 'have', 'here', 'is', 'one', 'we'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
-
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for a list with mixed empty documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for a list with mixed empty documents.")
 
 # Testing multiple documents for frequency_vectorizer
 def test_frequency_vectorizer_multiple_docs():
     docs = ["This is a sample document.", "Another document for testing."]
     result_tf_matrix, result_feature_names = frequency_vectorizer(docs)
 
-    expected_matrix = np.array([[0.2, 0.,   0.2 , 0. ,  0.2 , 0.2 , 0. ,  0.2 ], [0. ,  0.25 ,0.25 ,0.25, 0. ,  0.,   0.25, 0.]])
+    expected_matrix = np.array([[0.2, 0., 0.2 , 0. , 0.2 , 0.2 , 0. , 0.2 ], [0. , 0.25 ,0.25 ,0.25, 0. , 0., 0.25, 0.]])
     expected_feature_names = np.array(['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
-
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for multiple documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for multiple documents.")
 
 # Testing an additional case of multiple documents for frequency_vectorizer
 def test_frequency_vectorizer_additional_case():
@@ -155,9 +147,8 @@ def test_frequency_vectorizer_additional_case():
     expected_matrix = np.array([[1/3, 1/3, 1/3], [1/3, 2/3, 0]])
     expected_feature_names = np.array(['apple', 'banana', 'orange'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix)
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names)
-
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for an additional case of multiple documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for an additional case of multiple documents.")
 
 # Tests for tfidf_vectorizer
 # Testing an empty list for tfidf_vectorizer
