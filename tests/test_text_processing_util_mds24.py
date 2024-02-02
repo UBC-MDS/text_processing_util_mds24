@@ -47,7 +47,8 @@ def test_text_clean_one_doc():
     cleaned_doc = text_clean(one_doc)
     assert len(cleaned_doc) == 1, 'Number of documents is incorrect'
     assert sorted(cleaned_doc[0]) \
-           == sorted(['this', 'is', 'a', 'document', 'with', 'string'])
+           == sorted(['this', 'is', 'a', 'document', 'with', 'string']), \
+           'Function not cleaning texts correctly'
 
 
 # Testing an invalid input for text_clean
@@ -101,22 +102,28 @@ def test_frequency_vectorizer_single_doc():
     expected_matrix = np.array([[1/6, 1/6, 1/6, 1/6, 1/6, 1/6]])
     expected_feature_names = np.array(['a', 'document', 'is', 'string', 'this', 'with'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for a single document.")
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for a single document.")
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix,
+                                         err_msg="Incorrect frequency matrix for a single document.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names,
+                                  err_msg="Incorrect feature names for a single document.")
 
 # Testing a list of one empty string for frequency_vectorizer
 def test_frequency_vectorizer_list_empty_str():
     result_tf_matrix, result_feature_names = frequency_vectorizer(list_empty_str)
 
-    np.testing.assert_array_equal(result_tf_matrix, np.empty((1,0)), err_msg="Expected an empty array for an empty string in the list.")
-    np.testing.assert_array_equal(result_feature_names, np.array([]), err_msg="Expected an empty array for feature names when there is an empty string in the list.")
+    np.testing.assert_array_equal(result_tf_matrix, np.empty((1,0)),
+                                  err_msg="Expected an empty array for an empty string in the list.")
+    np.testing.assert_array_equal(result_feature_names, np.array([]),
+                                  err_msg="Expected an empty array for feature names when there is an empty string in the list.")
 
 # Testing a list with only numbers and punctuations for frequency_vectorizer
 def test_frequency_vectorizer_list_num_punctuation():
     result_tf_matrix, result_feature_names = frequency_vectorizer(list_num_punctuation)
 
-    np.testing.assert_array_equal(result_tf_matrix, np.empty((3,0)), err_msg="Expected an empty array for a list with only numbers and punctuations.")
-    np.testing.assert_array_equal(result_feature_names, np.array([]), err_msg="Expected an empty array for feature names when the list has only numbers and punctuations.")
+    np.testing.assert_array_equal(result_tf_matrix, np.empty((3,0)),
+                                  err_msg="Expected an empty array for a list with only numbers and punctuations.")
+    np.testing.assert_array_equal(result_feature_names, np.array([]),
+                                  err_msg="Expected an empty array for feature names when the list has only numbers and punctuations.")
 
 # Testing a list with one document being an empty string for frequency_vectorizer
 def test_frequency_vectorizer_list_mixed_empty():
@@ -125,8 +132,10 @@ def test_frequency_vectorizer_list_mixed_empty():
     expected_matrix = np.array([[0.25, 0, 0.25, 0.25, 0.25, 0], [0, 0, 0, 0, 0, 0], [1/3, 1/3, 0, 0, 0, 1/3]])
     expected_feature_names = np.array(['document', 'have', 'here', 'is', 'one', 'we'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for a list with mixed empty documents.")
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for a list with mixed empty documents.")
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix,
+                                         err_msg="Incorrect frequency matrix for a list with mixed empty documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names,
+                                  err_msg="Incorrect feature names for a list with mixed empty documents.")
 
 # Testing multiple documents for frequency_vectorizer
 def test_frequency_vectorizer_multiple_docs():
@@ -136,8 +145,10 @@ def test_frequency_vectorizer_multiple_docs():
     expected_matrix = np.array([[0.2, 0., 0.2 , 0. , 0.2 , 0.2 , 0. , 0.2 ], [0. , 0.25 ,0.25 ,0.25, 0. , 0., 0.25, 0.]])
     expected_feature_names = np.array(['a', 'another', 'document', 'for', 'is', 'sample', 'testing', 'this'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for multiple documents.")
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for multiple documents.")
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix,
+                                         err_msg="Incorrect frequency matrix for multiple documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names,
+                                  err_msg="Incorrect feature names for multiple documents.")
 
 # Testing an additional case of multiple documents for frequency_vectorizer
 def test_frequency_vectorizer_additional_case():
@@ -147,22 +158,26 @@ def test_frequency_vectorizer_additional_case():
     expected_matrix = np.array([[1/3, 1/3, 1/3], [1/3, 2/3, 0]])
     expected_feature_names = np.array(['apple', 'banana', 'orange'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for an additional case of multiple documents.")
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for an additional case of multiple documents.")
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix,
+                                         err_msg="Incorrect frequency matrix for an additional case of multiple documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names,
+                                  err_msg="Incorrect feature names for an additional case of multiple documents.")
 
 # Tests for tfidf_vectorizer
 # Testing an empty list for tfidf_vectorizer
 def test_tfidf_vectorizer_empty_list():
     tfidf_matrix, feature_names = tfidf_vectorizer(empty_list)
-    assert tfidf_matrix.shape == (0, 0), "Expected an empty numpy array for an empty list"
+    assert tfidf_matrix.shape == (0, 0), "Expected an empty NumPy array for an empty list"
     assert len(feature_names) == 0, "Expected an empty list for feature names"
 
 
 # Testing a list of one empty string for tfidf_vectorizer
 def test_tfidf_vectorizer_list_empty_str():
     tfidf_matrix, feature_names = tfidf_vectorizer(list_empty_str)
-    np.testing.assert_array_equal(tfidf_matrix, np.empty((1,0)), err_msg="Unexpected shape and/or non-empty array for tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array([]), err_msg="Expected an empty list for feature names")
+    np.testing.assert_array_equal(tfidf_matrix, np.empty((1,0)),
+                                  err_msg="Unexpected shape and/or non-empty array for tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array([]),
+                                  err_msg="Expected an empty list for feature names")
 
 
 # Testing a list with one document for tfidf_vectorizer
@@ -175,8 +190,10 @@ def test_tfidf_vectorizer_one_document():
     ])
     assert len(tfidf_matrix) == 1, "Unexpected number of rows in tfidf_matrix"
     assert len(feature_names) > 0, "Expected non-empty list for feature names"
-    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']), err_msg="Unexpected values in feature names")
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6,
+                                         err_msg="Unexpected values in tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array(['a', 'is', 'language', 'programming', 'python']),
+                                  err_msg="Unexpected values in feature names")
 
 
 # Testing a list with one document being empty string for tfidf_vectorizer
@@ -187,15 +204,19 @@ def test_tfidf_vectorizer_list_mixed_empty():
         [0., 0., 0., 0., 0., 0.],
         [0., 0.13515504, 0., 0., 0., 0.13515504]
     ])
-    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['document', 'have', 'here', 'is', 'one', 'we']), err_msg="Unexpected values in feature names")
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6,
+                                         err_msg="Unexpected values in tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array(['document', 'have', 'here', 'is', 'one', 'we']),
+                                  err_msg="Unexpected values in feature names")
 
 
 # Testing a list with only numbers and punctuations for tfidf_vectorizer
 def test_tfidf_vectorizer_list_num_punctuation():
     tfidf_matrix, feature_names = tfidf_vectorizer(list_num_punctuation)
-    np.testing.assert_array_equal(tfidf_matrix, np.empty((3,0)), err_msg="Unexpected shape and/or non-empty array for tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array([]), err_msg="Expected an empty list for feature names")
+    np.testing.assert_array_equal(tfidf_matrix, np.empty((3,0)),
+                                  err_msg="Unexpected shape and/or non-empty array for tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array([]),
+                                  err_msg="Expected an empty list for feature names")
 
 
 # Testing a list with multiple documents for tfidf_vectorizer
@@ -223,8 +244,10 @@ def test_tfidf_vectorizer_repeated_words():
         [-0.13515504, -0.13515504,  0.],  
         [-0.13515504, -0.27031007,  0.] 
     ])
-    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['apple', 'banana', 'orange']), err_msg="Unexpected values in feature names")
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix, decimal=6,
+                                         err_msg="Unexpected values in tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array(['apple', 'banana', 'orange']),
+                                  err_msg="Unexpected values in feature names")
 
 
 # Testing a list with similar documents for tfidf_vectorizer
@@ -236,8 +259,10 @@ def test_tfidf_vectorizer_similar_content():
         [ 0.,  0., -0.10136628, -0.10136628, -0.10136628],  
         [ 0.,  0., -0.10136628, -0.10136628, -0.10136628] 
     ])
-    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6, err_msg="Unexpected values in tfidf_matrix")
-    np.testing.assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']), err_msg="Unexpected values in feature names")
+    np.testing.assert_array_almost_equal(tfidf_matrix, expected_matrix[:, :5], decimal=6,
+                                         err_msg="Unexpected values in tfidf_matrix")
+    np.testing.assert_array_equal(feature_names, np.array(['fascinating', 'interesting', 'is', 'learning', 'machine']),
+                                  err_msg="Unexpected values in feature names")
 
 
 # Tests for tokenizer_padding
