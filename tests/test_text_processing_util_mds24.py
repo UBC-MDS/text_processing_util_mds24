@@ -147,8 +147,8 @@ def test_frequency_vectorizer_additional_case():
     expected_matrix = np.array([[1/3, 1/3, 1/3], [1/3, 2/3, 0]])
     expected_feature_names = np.array(['apple', 'banana', 'orange'])
 
-    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix), "Incorrect frequency matrix for an additional case of multiple documents."
-    np.testing.assert_array_equal(result_feature_names, expected_feature_names), "Incorrect feature names for an additional case of multiple documents."
+    np.testing.assert_array_almost_equal(result_tf_matrix, expected_matrix, err_msg="Incorrect frequency matrix for an additional case of multiple documents.")
+    np.testing.assert_array_equal(result_feature_names, expected_feature_names, err_msg="Incorrect feature names for an additional case of multiple documents.")
 
 # Tests for tfidf_vectorizer
 # Testing an empty list for tfidf_vectorizer
